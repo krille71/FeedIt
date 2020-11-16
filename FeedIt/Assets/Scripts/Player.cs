@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Animator anim;
+
     [SerializeField] private LayerMask platformsLayerMask;
     private Rigidbody2D rigidbody;
     private BoxCollider2D boxCollider;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     {
         rigidbody = transform.GetComponent<Rigidbody2D>();
         boxCollider = transform.GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
     {
         holdingJumpKey = false;
         holdingDownKey = false;
+        UpdatePlayerAnimation(rigidbody.velocity.y);
+        
 
         if (isGrounded())
             mayJump = COYOTE_TIME;
@@ -69,11 +74,27 @@ public class Player : MonoBehaviour
         if (rigidbody.velocity.y < 0)
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         else if (rigidbody.velocity.y > 0 && !holdingJumpKey)
+
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+
 
         // Decrease cooldowns
         mayJump -= Time.deltaTime;
         jumpBuffer -= Time.deltaTime;
+    }
+
+    // Toggles between running, jumping and falling depending on character velocity on Y-axis
+    private void UpdatePlayerAnimation(float _velocity){
+        if( _velocity > 0){
+            anim.SetBool("Jumping", true);
+            anim.SetBool("Falling", false);
+        }else if(_velocity < 0){
+            anim.SetBool("Jumping", false);
+            anim.SetBool("Falling", true);
+        }else{
+            anim.SetBool("Jumping", false);
+            anim.SetBool("Falling", false);
+        }
     }
 
     // Boxcast a tiny box from the bottom of the player and returns all hits
