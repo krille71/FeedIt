@@ -13,7 +13,7 @@ public class CookingHandling : MonoBehaviour
         }
     }
 
-    public void HandleIngredientCollecting(string ingredient){
+    public void HandleIngredientCollecting(GameObject ingredient){
         Debug.Log("Collected: " + ingredient);
     }
 }
