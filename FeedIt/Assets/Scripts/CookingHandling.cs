@@ -18,7 +18,5 @@ public class CookingHandling : MonoBehaviour
         //GameObject activeIngredientSlot = GameObject.Find("Ingredient_slot_1").gameObject;
         //Image activeIngredient = ingredient.GetComponent<Image>();
         Debug.Log("Collected: " + ingredient);
-        //Debug.Log(activeIngredient.image);
-
     }
 }

@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
     private float mayJump;
     private float jumpBuffer;
 
+    // Sound effects
+    public AudioSource jumpSound;
+    public AudioSource landingSound;
+    public AudioSource runningSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +61,7 @@ public class Player : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpVelocity;
             mayJump = 0;
             jumpBuffer = 0;
+            jumpSound.Play();
         }
 
         // Jump through semisolid by deactivating their hitbox
@@ -86,12 +92,20 @@ public class Player : MonoBehaviour
     // Toggles between running, jumping and falling depending on character velocity on Y-axis
     private void UpdatePlayerAnimation(float _velocity){
         if( _velocity > 0){
+            runningSound.Stop();
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }else if(_velocity < 0){
+            runningSound.Stop();
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", true);
         }else{
+            if(anim.GetBool("Falling")){
+                landingSound.Play();
+            }
+            if(!runningSound.isPlaying){
+                runningSound.Play();
+            }    
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", false);
         }
