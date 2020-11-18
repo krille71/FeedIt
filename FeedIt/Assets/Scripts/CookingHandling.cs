@@ -5,18 +5,19 @@ using UnityEngine.UIElements;
 
 public class CookingHandling : MonoBehaviour
 {
-    public static CookingHandling instance;
 
-    void Start()
+    [SerializeField] private List<Vector3> positions;
+
+    private List<GameObject> ingredients = new List<GameObject>();
+
+    public void CollectIngredient(GameObject ingredient)
     {
-        if(instance == null){
-            instance = this;
+        var numIngredients = ingredients.Count;
+        if(numIngredients < 3)
+        {
+            ingredient.transform.parent = transform;
+            ingredient.transform.position = positions[numIngredients];
+            ingredients.Add(ingredient);
         }
-    }
-
-    public void HandleIngredientCollecting(GameObject ingredient){
-        //GameObject activeIngredientSlot = GameObject.Find("Ingredient_slot_1").gameObject;
-        //Image activeIngredient = ingredient.GetComponent<Image>();
-        Debug.Log("Collected: " + ingredient);
     }
 }
