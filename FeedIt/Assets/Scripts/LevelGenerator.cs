@@ -7,7 +7,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] private List<Transform> chunks;
     [SerializeField] private const float ORIGIN_DISTANCE_SPAWN_CHUNK = 30f;
-    private Vector3 width = new Vector3(20f, 0f, 0f);
+    private Vector3 width = new Vector3(30f, 0f, 0f);
     private Transform lastChunk;
 
     // Start is called before the first frame update

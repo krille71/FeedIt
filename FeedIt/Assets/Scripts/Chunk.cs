@@ -6,7 +6,7 @@ public class Chunk : MonoBehaviour
 {
 
     [SerializeField] private float scrollSpeed = 1f;
-    [SerializeField] private float destroyPoistionX = -30f;
+    [SerializeField] private float destroyPoistionX = -40f;
 
     void Update()
     {
