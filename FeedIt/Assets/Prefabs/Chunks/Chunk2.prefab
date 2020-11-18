@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 262382847949233878, guid: a872f900f1e37934cbeb623a5f6e2ada,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.745313
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 262382847949233878, guid: a872f900f1e37934cbeb623a5f6e2ada,
         type: 3}
@@ -698,12 +698,12 @@ PrefabInstance:
     - target: {fileID: 7716678252207477488, guid: f6e39f622540e7a4d93cf98622722623,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.25
+      value: -8.16
       objectReference: {fileID: 0}
     - target: {fileID: 7716678252207477488, guid: f6e39f622540e7a4d93cf98622722623,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 7716678252207477488, guid: f6e39f622540e7a4d93cf98622722623,
         type: 3}
@@ -768,7 +768,7 @@ PrefabInstance:
     - target: {fileID: 555509878377915356, guid: ae7b2e70815b11f4094cfd0d6701bd0f,
         type: 3}
       propertyPath: m_Name
-      value: 9_tile_platform
+      value: 8_tile_platform
       objectReference: {fileID: 0}
     - target: {fileID: 1201373359556486725, guid: ae7b2e70815b11f4094cfd0d6701bd0f,
         type: 3}
@@ -793,7 +793,7 @@ PrefabInstance:
     - target: {fileID: 3225855711760678504, guid: ae7b2e70815b11f4094cfd0d6701bd0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.275057
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 3225855711760678504, guid: ae7b2e70815b11f4094cfd0d6701bd0f,
         type: 3}
@@ -918,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 7716678252207477488, guid: f6e39f622540e7a4d93cf98622722623,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 7716678252207477488, guid: f6e39f622540e7a4d93cf98622722623,
         type: 3}
