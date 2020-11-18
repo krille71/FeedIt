@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", true);
         }else{
-            if(anim.GetBool("Falling")){
+            if(anim.GetBool("Falling") && !landingSound.isPlaying){
                 landingSound.Play();
             }
             if(!runningSound.isPlaying){
