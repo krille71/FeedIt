@@ -20,7 +20,7 @@ public class IngredientSpawner : MonoBehaviour
             // If n is lower than current chance, spawn in that object and break
             if(n < currentChance)
             {
-                Transform ingredient = Instantiate(ingredients[i], transform.position + new Vector3(0.5f,0,0), Quaternion.identity);
+                Transform ingredient = Instantiate(ingredients[i], transform.position + new Vector3(0.5f,0,41), Quaternion.identity);
                 ingredient.transform.parent = transform.parent;
                 break;
             }

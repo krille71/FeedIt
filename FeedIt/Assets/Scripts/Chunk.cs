@@ -5,8 +5,8 @@ using UnityEngine;
 public class Chunk : MonoBehaviour
 {
 
-    [SerializeField] private float scrollSpeed = 1f;
-    [SerializeField] private float destroyPoistionX = -40f;
+    [SerializeField] private float scrollSpeed = 10f;
+    [SerializeField] private float destroyPoistionX = -45f;
 
     void Update()
     {
