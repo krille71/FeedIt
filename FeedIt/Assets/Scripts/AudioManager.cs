@@ -2,8 +2,7 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour{
 
 	public static AudioManager instance;
 
@@ -11,8 +10,7 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
-	void Awake()
-	{
+	void Awake(){
 		if (instance != null)
 		{
 			Destroy(gameObject);
@@ -33,19 +31,36 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void Play(string sound)
-	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
-		if (s == null)
-		{
-			Debug.LogWarning("Sound: " + name + " not found!");
-			return;
-		}
+	public void Play(string sound){
+		Debug.LogWarning("Trying to play sound");
+		Sound s = FindSound(sound);
 
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
 		s.source.Play();
+	}
+
+	public void PlayBacgroundSound(){
+		string startSound = "startingsound";
+		Sound s = FindSound(startSound);
+		float soundLength = s.clip.length;
+
+		s.source.Play();
+		Invoke("PlayLoop", soundLength);
+	}
+	private void PlayLoop(){
+		string loopSound = "reapitingsound";
+		Play(loopSound);
+	}
+
+	public Sound FindSound(string sound){
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null){
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return null;
+		}
+		return s;
 	}
 
 }
