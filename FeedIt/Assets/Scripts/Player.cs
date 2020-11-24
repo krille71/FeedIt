@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         holdingJumpKey = false;
         holdingDownKey = false;
         UpdatePlayerAnimation(rigidbody.velocity.y);
-        
+
 
         if (isGrounded())
             mayJump = COYOTE_TIME;
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
             }
             if(!runningSound.isPlaying){
                 runningSound.Play();
-            }    
+            }
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", false);
         }
@@ -141,8 +141,8 @@ public class Player : MonoBehaviour
         RaycastHit2D cast = boxCast();
 
         // If hit and not currently inside that object and not jumping return true
-        return cast.collider != null 
-            && !boxCollider.bounds.Intersects(cast.transform.GetComponent<BoxCollider2D>().bounds) 
+        return cast.collider != null
+            && !boxCollider.bounds.Intersects(cast.transform.GetComponent<BoxCollider2D>().bounds)
             && rigidbody.velocity.y <= 0;
     }
 }
