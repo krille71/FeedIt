@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Animator anim;
+    protected Animator anim;
 
     [SerializeField] private LayerMask platformsLayerMask;
-    private Rigidbody2D rigidbody;
-    private BoxCollider2D boxCollider;
+    protected Rigidbody2D rigidbody;
+    protected BoxCollider2D boxCollider;
 
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2.5f;
     [SerializeField] private float jumpVelocity = 10f;
 
-    private bool holdingJumpKey = false;
-    private bool holdingDownKey = false;
+    protected bool holdingJumpKey = false;
+    protected bool holdingDownKey = false;
     [SerializeField] private float COYOTE_TIME = 0.1f;
-    [SerializeField] private float JUMP_BUFFER_TIME = 0.1f;
+    [SerializeField] protected float JUMP_BUFFER_TIME = 0.1f;
     private float mayJump;
-    private float jumpBuffer;
+    protected float jumpBuffer;
 
     // Sound effects
     public AudioSource jumpSound;
@@ -27,33 +27,35 @@ public class Player : MonoBehaviour
     public AudioSource runningSound;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         rigidbody = transform.GetComponent<Rigidbody2D>();
         boxCollider = transform.GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
 
+    protected virtual void KeyInput()
+    {
+
+    }
+
+    protected virtual void HandleInput()
+    {
+
+    }
+
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         holdingJumpKey = false;
         holdingDownKey = false;
         UpdatePlayerAnimation(rigidbody.velocity.y);
 
-
         if (isGrounded())
             mayJump = COYOTE_TIME;
 
-        // Pressed keys
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            jumpBuffer = JUMP_BUFFER_TIME;
-
-        // Held keys
-        if (Input.GetKey(KeyCode.UpArrow))
-            holdingJumpKey = true;
-        if (Input.GetKey(KeyCode.DownArrow))
-            holdingDownKey = true;
+        KeyInput();
+        HandleInput();
 
         // Initial jump
         if (mayJump > 0 && jumpBuffer > 0 && holdingJumpKey)
@@ -65,15 +67,18 @@ public class Player : MonoBehaviour
         }
 
         // Jump through semisolid by deactivating their hitbox
-        RaycastHit2D[] casts = boxCastAll(0.001f, 5f);
-        foreach(RaycastHit2D cast in casts)
+        if(holdingDownKey && isGrounded())
         {
-            if(isGrounded() && cast.collider != null && cast.transform.gameObject.tag == "SemiSolid" && holdingDownKey)
-                cast.transform.gameObject.GetComponent<Collider2D>().enabled = false;
+            RaycastHit2D[] casts = boxCastAll(0.001f, 5f);
+            foreach(RaycastHit2D cast in casts)
+            {
+                if(cast.collider != null && cast.transform.gameObject.tag == "SemiSolid")
+                    cast.transform.gameObject.GetComponent<Collider2D>().enabled = false;
+            }
         }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
 
         // Gravity based on where you are in the jump
@@ -90,25 +95,8 @@ public class Player : MonoBehaviour
     }
 
     // Toggles between running, jumping and falling depending on character velocity on Y-axis
-    private void UpdatePlayerAnimation(float _velocity){
-        if( _velocity > 0){
-            runningSound.Stop();
-            anim.SetBool("Jumping", true);
-            anim.SetBool("Falling", false);
-        }else if(_velocity < 0){
-            runningSound.Stop();
-            anim.SetBool("Jumping", false);
-            anim.SetBool("Falling", true);
-        }else{
-            if(anim.GetBool("Falling") && !landingSound.isPlaying){
-                landingSound.Play();
-            }
-            if(!runningSound.isPlaying){
-                runningSound.Play();
-            }
-            anim.SetBool("Jumping", false);
-            anim.SetBool("Falling", false);
-        }
+    protected virtual void UpdatePlayerAnimation(float _velocity){
+        
     }
 
     // Boxcast a tiny box from the bottom of the player and returns all hits
@@ -138,6 +126,10 @@ public class Player : MonoBehaviour
 
     private bool isGrounded()
     {
+        // Always seen as grounded if kinematic
+        if (rigidbody.isKinematic == true)
+            return true;
+
         RaycastHit2D cast = boxCast();
 
         // If hit and not currently inside that object and not jumping return true
