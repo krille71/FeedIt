@@ -8,8 +8,13 @@ public class PlayerRacoon : Player
     [SerializeField] private PlayerOstrich ostrich;
     [SerializeField] private float DETACH_TIME = 0.3f;
     [SerializeField] private float RETACH_TIME = 0.3f;
+    [SerializeField] private Vector3 localPosition = new Vector3(-0.51f, 0.44f, 1.0f);
+
     private float detachTimer = 0;
     private float retachTimer = 0;
+
+    bool overOstrich = false;
+    bool prevOverOstrich = false;
 
     protected override void KeyInput()
     {
@@ -26,6 +31,7 @@ public class PlayerRacoon : Player
 
     protected override void HandleInput()
     {
+        // Detach
         if (transform.parent != null && detachTimer < 0)
         {
             if (holdingJumpKey || holdingDownKey)
@@ -33,20 +39,34 @@ public class PlayerRacoon : Player
                 transform.parent = null;
                 retachTimer = RETACH_TIME;
                 rigidbody.isKinematic = false;
+
+                // Fix jumping velocity for the racoon when the ostrich is jumping
+                //if(ostrich.transform.GetComponent<Rigidbody2D>().velocity.y < 0 && holdingDownKey)
+                rigidbody.velocity = Vector3.zero;
             }
         }
 
-        // Jumping on ostrich
-        /*if (transform.parent == null && retachTimer < 0)
+        // Retach
+        if (transform.parent == null && retachTimer < 0)
         {
-            transform.parent = ostrich;
-            retachTimer = RETACH_TIME;
-        }*/
+            if(prevOverOstrich && !overOstrich)
+            {
+                detachTimer = DETACH_TIME;
+                transform.parent = ostrich.transform;
+                transform.localPosition = localPosition;
+                rigidbody.isKinematic = true;
+            }
+        }
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        // racoons positin in relation to the ostrich
+        prevOverOstrich = overOstrich;
+        var localPos = ostrich.transform.InverseTransformPoint(transform.position);
+        overOstrich = localPos.y > localPosition.y;
 
         // Decrease cooldowns
         retachTimer -= Time.deltaTime;
