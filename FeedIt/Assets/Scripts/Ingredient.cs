@@ -16,5 +16,9 @@ public class Ingredient : MonoBehaviour
         if(other.gameObject.CompareTag("Player")){
             cookingHandling.CollectIngredient(gameObject);
         }
+        else if (other.gameObject.CompareTag("Beast"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

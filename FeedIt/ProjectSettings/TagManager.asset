@@ -9,6 +9,7 @@ TagManager:
   - Strawberry
   - Egg
   - Collection
+  - Beast
   layers:
   - Default
   - TransparentFX
