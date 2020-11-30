@@ -83,27 +83,30 @@ public class PlayerRacoon : Player
 
     private void UpdateRaccoonAnimation(float _velocity){
         Debug.Log("UpdateRaccoonAnimation: " + _velocity);
-        if (_velocity > 0)
-        {
-            raccoonAnim.SetBool("Jumping", true);
-            raccoonAnim.SetBool("Falling", false);
-            raccoonAnim.SetBool("Running", false);
-        }
-        else if (_velocity < 0 && !rigidbody.isKinematic)
-        {
-            raccoonAnim.SetBool("Jumping", false);
-            raccoonAnim.SetBool("Falling", true);
-            raccoonAnim.SetBool("Running", false);
-        }
-        else if(transform.parent == null)
-        {
-            raccoonAnim.SetBool("Jumping", false);
-            raccoonAnim.SetBool("Falling", false);
-            raccoonAnim.SetBool("Running", true);
+        if(transform.parent == null){
+            if (_velocity > 0)
+            {
+                raccoonAnim.SetBool("Jumping", true);
+                raccoonAnim.SetBool("Falling", false);
+                raccoonAnim.SetBool("Running", false);
+            }
+            else if (_velocity < 0)
+            {
+                raccoonAnim.SetBool("Jumping", false);
+                raccoonAnim.SetBool("Falling", true);
+                raccoonAnim.SetBool("Running", false);
+            }
+            else
+            {
+                raccoonAnim.SetBool("Jumping", false);
+                raccoonAnim.SetBool("Falling", false);
+                raccoonAnim.SetBool("Running", true);
+                }
         }else{
             raccoonAnim.SetBool("Jumping", false);
             raccoonAnim.SetBool("Falling", false);
-            raccoonAnim.SetBool("Running", false);
+            raccoonAnim.SetBool("Running", false);}
+        
         }
-    }
+    
 }
