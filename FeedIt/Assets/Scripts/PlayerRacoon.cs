@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRacoon : Player
 {
+    protected Animator raccoonAnim;
 
     [SerializeField] private PlayerOstrich ostrich;
     [SerializeField] private float DETACH_TIME = 0.3f;
@@ -15,6 +16,12 @@ public class PlayerRacoon : Player
 
     bool overOstrich = false;
     bool prevOverOstrich = false;
+
+    private void Awake(){
+        raccoonAnim = GetComponent<Animator>();
+
+    }
+
 
     protected override void KeyInput()
     {
@@ -62,14 +69,34 @@ public class PlayerRacoon : Player
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-
         // racoons positin in relation to the ostrich
         prevOverOstrich = overOstrich;
         var localPos = ostrich.transform.InverseTransformPoint(transform.position);
         overOstrich = localPos.y > localPosition.y;
-
+        UpdateRaccoonAnimation(rigidbody.velocity.y);
         // Decrease cooldowns
         retachTimer -= Time.deltaTime;
         detachTimer -= Time.deltaTime;
+    }
+
+
+
+    private void UpdateRaccoonAnimation(float _velocity){
+        Debug.Log("UpdateRaccoonAnimation: " + _velocity);
+        if (_velocity > 0)
+        {
+            raccoonAnim.SetBool("Jumping", true);
+            raccoonAnim.SetBool("Falling", false);
+        }
+        else if (_velocity < 0 && !rigidbody.isKinematic)
+        {
+            raccoonAnim.SetBool("Jumping", false);
+            raccoonAnim.SetBool("Falling", true);
+        }
+        else
+        {
+            raccoonAnim.SetBool("Jumping", false);
+            raccoonAnim.SetBool("Falling", false);
+        }
     }
 }
