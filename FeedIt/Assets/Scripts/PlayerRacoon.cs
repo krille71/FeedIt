@@ -9,7 +9,7 @@ public class PlayerRacoon : Player
     [SerializeField] private PlayerOstrich ostrich;
     [SerializeField] private float DETACH_TIME = 0.3f;
     [SerializeField] private float RETACH_TIME = 0.3f;
-    [SerializeField] private Vector3 localPosition = new Vector3(-0.51f, 0.44f, 1.0f);
+    [SerializeField] private Vector3 localPosition = new Vector3(-0.31f, 0.44f, 1.0f);
 
     private float detachTimer = 0;
     private float retachTimer = 0;
