@@ -732,7 +732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724576864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31, y: 0.3, z: -0.100000024}
+  m_LocalPosition: {x: -0.31, y: 0.44, z: -0.100000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1425268002}
@@ -764,7 +764,7 @@ MonoBehaviour:
   ostrich: {fileID: 1425267997}
   DETACH_TIME: 0.3
   RETACH_TIME: 0.3
-  localPosition: {x: -0.31, y: 0.44, z: 1}
+  localPosition: {x: -0.31, y: 0.44, z: -0.1}
 --- !u!61 &724576867
 BoxCollider2D:
   m_ObjectHideFlags: 0
