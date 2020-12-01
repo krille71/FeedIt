@@ -10,6 +10,7 @@ TagManager:
   - Egg
   - Collection
   - Beast
+  - Mushroom
   layers:
   - Default
   - TransparentFX
