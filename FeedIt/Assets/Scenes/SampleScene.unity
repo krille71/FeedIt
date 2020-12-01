@@ -391,7 +391,7 @@ PrefabInstance:
     - target: {fileID: 7191526384720242259, guid: 03d08985e27364900b3e8c31ce1cc46f,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191526384720242263, guid: 03d08985e27364900b3e8c31ce1cc46f,
         type: 3}
@@ -598,7 +598,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688873904}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -611,6 +611,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &688873910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688873904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7473013d8042647b389d9c827ea64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MOVE_TIME: 0.5
 --- !u!1001 &711663176
 PrefabInstance:
   m_ObjectHideFlags: 0

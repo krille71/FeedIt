@@ -94,6 +94,15 @@ public class Player : MonoBehaviour
         jumpBuffer -= Time.deltaTime;
     }
 
+    protected virtual void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Beast"))
+        {
+            // TODO end game here
+            //Debug.Log("YOU DED");
+        }
+    }
+
     // Toggles between running, jumping and falling depending on character velocity on Y-axis
     protected virtual void UpdatePlayerAnimation(float _velocity){
         

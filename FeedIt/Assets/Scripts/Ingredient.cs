@@ -18,6 +18,7 @@ public class Ingredient : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Beast"))
         {
+            other.gameObject.GetComponent<Beast>().Move(1.0f);
             Destroy(gameObject);
         }
     }
