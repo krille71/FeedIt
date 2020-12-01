@@ -22,8 +22,11 @@ public class CookingHandling : MonoBehaviour
     */
     private String[] recipies = System.IO.File.ReadAllLines(@"./Assets/Scripts/recipies.txt"); 
     private Dictionary<(string, string, string), string> CookingDict = new Dictionary<(string, string, string), string>();
+    private GameObject player;
 
     public void Start(){
+
+        player = GameObject.Find("Ostrich");
 
         foreach (var recipy in recipies)
         {
@@ -38,13 +41,12 @@ public class CookingHandling : MonoBehaviour
     }
 
     public void Update(){
-        if(ingredients.Count == 3){
+        if(ingredients.Count == 3 && player.transform.childCount > 0){
             Cooking();
         }
     }
 
     public void Cooking(){
-        print("COOKING MAGIC!!"); // TODO: Remove
         List<GameObject> ingredients_sorted = ingredients.OrderBy(key=>key.tag).ToList();
         var dish_key = (ingredients_sorted[0].tag, ingredients_sorted[1].tag, ingredients_sorted[2].tag);
         GameObject dish;
