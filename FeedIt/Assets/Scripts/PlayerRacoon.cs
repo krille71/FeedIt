@@ -82,7 +82,7 @@ public class PlayerRacoon : Player
 
 
     private void UpdateRaccoonAnimation(float _velocity){
-        Debug.Log("UpdateRaccoonAnimation: " + _velocity);
+        //Debug.Log("UpdateRaccoonAnimation: " + _velocity);
         if(transform.parent == null){
             if (_velocity > 0)
             {

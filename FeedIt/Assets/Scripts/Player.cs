@@ -94,12 +94,12 @@ public class Player : MonoBehaviour
         jumpBuffer -= Time.deltaTime;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Beast"))
         {
             // TODO end game here
-            //Debug.Log("YOU DED");
+            Debug.Log("YOU DED");
         }
     }
 
