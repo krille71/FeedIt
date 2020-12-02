@@ -5,10 +5,14 @@ using UnityEngine;
 public class backgroundTest : MonoBehaviour
 {
 
+    public float backgroundSpeed;
+    public float heightOffset;
+    public float layer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+         Debug.Log(this.gameObject.GetComponent<Renderer>().bounds.size);
     }
 
     // Update is called once per frame
@@ -16,10 +20,10 @@ public class backgroundTest : MonoBehaviour
     {
         //Vector3 horizontal = new Vector3(Input.GetAxis("horizontal"),0.0f,0.0f);
        // transform.position = transform.position + horizontal * Time.deltaTime;
-       if(transform.position.x < 0){
-           this.gameObject.transform.position = new Vector3(15.0f,4.86f,89f);
+       if(transform.position.x < -20.0f){
+           this.gameObject.transform.position = new Vector3(20.0f,heightOffset, layer);
        }
        
-       transform.Translate(-0.1f,0.0f,0.0f);
+       transform.Translate(-backgroundSpeed,0.0f,0.0f);
     }
 }
