@@ -23,12 +23,14 @@ public class CookingHandling : MonoBehaviour
        Ingredients should prefabs found in Assets/Prefabs/Ingredients and the dishes should be prefabs in Assets/Resources
        ! NAMES HAS TO BE THE SAME IN THE TXT AND PREFABS, they need to correspond !    
     */
-    private String[] recipies = System.IO.File.ReadAllLines(@"./Assets/Scripts/recipies.txt"); 
+    private String[] recipies;
     private Dictionary<(string, string, string), string> CookingDict = new Dictionary<(string, string, string), string>();
     private GameObject player;
+    
 
     public void Start(){
-
+        
+        recipies = Resources.Load<TextAsset>("recipies").text.Split('\n'); 
         player = GameObject.Find("Ostrich");
 
         foreach (var recipy in recipies)
