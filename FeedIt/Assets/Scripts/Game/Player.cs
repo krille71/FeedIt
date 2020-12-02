@@ -88,7 +88,6 @@ public class Player : MonoBehaviour
         if (rigidbody.velocity.y < 0)
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         else if (rigidbody.velocity.y > 0 && !holdingJumpKey)
-
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 
 

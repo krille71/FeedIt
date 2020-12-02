@@ -2801,7 +2801,7 @@ MonoBehaviour:
   - {x: -9, y: 5, z: 1}
   - {x: -8, y: 5, z: 1}
   - {x: -7, y: 5, z: 1}
-  - {x: -5, y: 5, z: 1}
+  COOKING_TIME: 0.5
   pickUpSound: {fileID: 1698402509}
 --- !u!114 &1546678165
 MonoBehaviour:
