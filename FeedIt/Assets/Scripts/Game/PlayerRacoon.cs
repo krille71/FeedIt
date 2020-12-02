@@ -25,7 +25,7 @@ public class PlayerRacoon : Player
 
     protected override void KeyInput()
     {
-        if(!CookingHandling.isCooking){
+
         // Pressed keys
         if (Input.GetKeyDown(KeyCode.W))
             jumpBuffer = JUMP_BUFFER_TIME;
@@ -36,7 +36,7 @@ public class PlayerRacoon : Player
         if (Input.GetKey(KeyCode.S))
             holdingDownKey = true;
             }
-    }
+
 
     protected override void HandleInput()
     {
