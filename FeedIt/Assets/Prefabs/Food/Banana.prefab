@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c56c6ebc58f3a4ca2046a56026d0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BEAST_EATING_MOVEMENT: 1
+  BEAST_EATING_MOVEMENT: 0.1

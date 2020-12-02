@@ -47,11 +47,13 @@ MonoBehaviour:
   ingredients:
   - {fileID: 5389196963958796922, guid: 7bc27525e4d99b64e889ab032c1a1ca8, type: 3}
   - {fileID: 1358063472461422053, guid: a192fdfe16d58de48a2d92e9836a768a, type: 3}
-  - {fileID: 3125115189699419786, guid: 7d4af5394ae7df040a214b14ed116fdf, type: 3}
+  - {fileID: 3125115189699419786, guid: e14f60415399bbc44a1c2d708083f72a, type: 3}
+  - {fileID: 1011185252380658105, guid: 99ba04bde20200d4686c65a35a9bf82d, type: 3}
   ingredientsSpawnChance:
   - 0.3
   - 0.3
   - 0.3
+  - 0
 --- !u!212 &-5412344349383648364
 SpriteRenderer:
   m_ObjectHideFlags: 0
