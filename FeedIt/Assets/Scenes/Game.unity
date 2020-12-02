@@ -1419,6 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6593fa795bb905843822ae3cebbf027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InGameMenu: {fileID: 389096959}
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2490,6 +2491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da513e542b577244a98b2c465ed97c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InGameMenu: {fileID: 389096959}
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 256

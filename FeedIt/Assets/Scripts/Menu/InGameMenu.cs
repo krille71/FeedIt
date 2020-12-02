@@ -44,6 +44,7 @@ public class InGameMenu : MonoBehaviour
 
     public void Retry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1);
     }
 
@@ -60,6 +61,8 @@ public class InGameMenu : MonoBehaviour
 
     public void GameOver()
     {
+        InGameMenuUI.SetActive(true);
         GameOverMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
