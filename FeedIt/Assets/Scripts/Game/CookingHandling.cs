@@ -9,6 +9,9 @@ public class CookingHandling : MonoBehaviour
 {
 
     [SerializeField] private List<Vector3> positions;
+    [SerializeField] private float COOKING_TIME = 0.5f;
+    private float cookingTimer = 0f;
+    public static bool isCooking = false;
 
     private List<GameObject> ingredients = new List<GameObject>();
 
@@ -41,8 +44,22 @@ public class CookingHandling : MonoBehaviour
     }
 
     public void Update(){
-        if(ingredients.Count == 3 && player.transform.childCount > 0){
-            Cooking();
+        if(!isCooking && ingredients.Count == 3 && player.transform.childCount > 0)
+        {
+            isCooking = true;
+            cookingTimer = COOKING_TIME;
+        }
+        else if (isCooking)
+        {
+            if (cookingTimer <= 0)
+            {
+                isCooking = false;
+                Cooking();
+            }
+            else
+            {
+                cookingTimer -= Time.deltaTime;
+            }
         }
     }
 
@@ -55,24 +72,17 @@ public class CookingHandling : MonoBehaviour
         if (
         CookingDict.ContainsKey(dish_key)) {
             Debug.Log(CookingDict[dish_key]); //TODO: Remove
-            cookedDish = "Strawberry"; // Replace with CookingDict[dish_key]
+            cookedDish = "BowlOfGoods"; // Replace with CookingDict[dish_key]
         } else {
             Debug.Log("Bowl of goods"); // TODO: Remove
-            cookedDish = "Strawberry"; // Replace with "Bowl of goods"
+            cookedDish = "BowlOfGoods"; // Replace with "Bowl of goods"
         }
 
         ingredients.ForEach(Destroy);
         ingredients = new List<GameObject>();
 
         dish = Instantiate(Resources.Load(cookedDish, typeof(GameObject))) as GameObject;
-        dish.transform.parent = gameObject.transform;
-        dish.transform.position = positions[3];
-
-        feedBeast(dish);
-    }
-    
-    public void feedBeast(GameObject dish){ 
-        // Animations of feeding the best as well as logic to feed the beast.
+        dish.transform.position = player.transform.position;
     }
 
     public void CollectIngredient(GameObject ingredient)

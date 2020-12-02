@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     protected Animator anim;
 
+    [SerializeField] private GameObject InGameMenu;
+    private InGameMenu inGameMenu;
     [SerializeField] private LayerMask platformsLayerMask;
     protected Rigidbody2D rigidbody;
     protected BoxCollider2D boxCollider;
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
         rigidbody = transform.GetComponent<Rigidbody2D>();
         boxCollider = transform.GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        inGameMenu = InGameMenu.transform.GetComponent<InGameMenu>();
     }
 
     protected virtual void KeyInput()
@@ -85,7 +88,6 @@ public class Player : MonoBehaviour
         if (rigidbody.velocity.y < 0)
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         else if (rigidbody.velocity.y > 0 && !holdingJumpKey)
-
             rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 
 
@@ -98,8 +100,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Beast"))
         {
-            // TODO end game here
-            Debug.Log("YOU DED");
+            inGameMenu.GameOver();
         }
     }
 
