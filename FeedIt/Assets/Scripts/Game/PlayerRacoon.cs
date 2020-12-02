@@ -25,6 +25,7 @@ public class PlayerRacoon : Player
 
     protected override void KeyInput()
     {
+        if(!CookingHandling.isCooking){
         // Pressed keys
         if (Input.GetKeyDown(KeyCode.W))
             jumpBuffer = JUMP_BUFFER_TIME;
@@ -34,6 +35,7 @@ public class PlayerRacoon : Player
             holdingJumpKey = true;
         if (Input.GetKey(KeyCode.S))
             holdingDownKey = true;
+            }
     }
 
     protected override void HandleInput()
@@ -103,10 +105,17 @@ public class PlayerRacoon : Player
                 raccoonAnim.SetBool("Running", true);
                 }
         }else{
+            if(CookingHandling.isCooking){                
+                raccoonAnim.SetBool("Jumping", false);
+                raccoonAnim.SetBool("Falling", false);
+                raccoonAnim.SetBool("Running", false);
+                raccoonAnim.SetBool("Cooking", true);
+            }else{
             raccoonAnim.SetBool("Jumping", false);
             raccoonAnim.SetBool("Falling", false);
-            raccoonAnim.SetBool("Running", false);}
-        
+            raccoonAnim.SetBool("Running", false);
+            raccoonAnim.SetBool("Cooking", false);
+            }
         }
-    
+    }
 }

@@ -7,7 +7,8 @@ public class Dish : MonoBehaviour
     [SerializeField] private float BEAST_EATING_MOVEMENT = 0.5f;
     private Rigidbody2D rigidbody;
     private bool onGround = false;
-
+    [SerializeField] private float scrollSpeed = 10f;
+    [SerializeField] private float destroyPoistionX = -45f;
     void start()
     {
         rigidbody = transform.GetComponent<Rigidbody2D>();
@@ -28,6 +29,11 @@ public class Dish : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        if(transform.position.x < destroyPoistionX)
+        {
+            Destroy(this.gameObject);
+        }
+         transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
         // Gravity
         //if (!onGround)
             //rigidbody.position += -Vector2.up * 0.01f;

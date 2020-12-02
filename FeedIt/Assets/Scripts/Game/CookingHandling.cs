@@ -72,10 +72,10 @@ public class CookingHandling : MonoBehaviour
         if (
         CookingDict.ContainsKey(dish_key)) {
             Debug.Log(CookingDict[dish_key]); //TODO: Remove
-            cookedDish = "BowlOfGoods"; // Replace with CookingDict[dish_key]
+            cookedDish = "BowlOfGoodies"; // Replace with CookingDict[dish_key]
         } else {
             Debug.Log("Bowl of goods"); // TODO: Remove
-            cookedDish = "BowlOfGoods"; // Replace with "Bowl of goods"
+            cookedDish = "BowlOfGoodies"; // Replace with "Bowl of goods"
         }
 
         ingredients.ForEach(Destroy);
