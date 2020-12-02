@@ -6,31 +6,45 @@ using UnityEngine.SceneManagement;
 public class InGameMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject InGameMenuUI;
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject GameOverMenu;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Pause and resume by pressing escape if not in game over
+        if (!GameOverMenu.active && Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
+            {
                 Resume();
+            }
             else
+            {
                 Pause();
+                PauseMenu.SetActive(true);
+            }
         }
     }
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        InGameMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        PauseMenu.SetActive(false);
     }
 
     private void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        InGameMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
@@ -42,5 +56,10 @@ public class InGameMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        GameOverMenu.SetActive(true);
     }
 }
