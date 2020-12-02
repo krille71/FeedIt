@@ -69,11 +69,16 @@ public class CookingHandling : MonoBehaviour
         GameObject dish;
         String cookedDish;
 
-        if (
+        if (ingredients_sorted[0].tag == "Mushroom" || ingredients_sorted[1].tag == "Mushroom" || ingredients_sorted[2].tag == "Mushroom")
+        {
+            cookedDish = "BowlOfGoodsTranquilizer";
+        }
+        else if (
         CookingDict.ContainsKey(dish_key)) {
             Debug.Log(CookingDict[dish_key]); //TODO: Remove
             cookedDish = "BowlOfGoodies"; // Replace with CookingDict[dish_key]
-        } else {
+        }
+        else {
             Debug.Log("Bowl of goods"); // TODO: Remove
             cookedDish = "BowlOfGoodies"; // Replace with "Bowl of goods"
         }

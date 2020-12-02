@@ -11,9 +11,9 @@ TagManager:
   - Collection
   - Beast
   - Mushroom
-  - BowlOfGoods
   - BowlOfGoodsTranquilizer
   - Ground
+  - BowlOfGoodies
   layers:
   - Default
   - TransparentFX
