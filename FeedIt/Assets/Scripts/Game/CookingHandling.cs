@@ -12,11 +12,12 @@ public class CookingHandling : MonoBehaviour
     [SerializeField] private float COOKING_TIME = 0.5f;
     private float cookingTimer = 0f;
     public static bool isCooking = false;
-
+  
     private List<GameObject> ingredients = new List<GameObject>();
 
     // Sound effects
     public AudioSource pickUpSound;
+    public AudioSource bonApetitSound;
 
     /* 
        All recipies should be in the recipies.txt. Follow the format: Ingredient,Ingredient,Ingredient;Dish 
@@ -89,6 +90,7 @@ public class CookingHandling : MonoBehaviour
 
         dish = Instantiate(Resources.Load(cookedDish, typeof(GameObject))) as GameObject;
         dish.transform.position = player.transform.position;
+        bonApetitSound.Play();
     }
 
     public void CollectIngredient(GameObject ingredient)
