@@ -77,11 +77,10 @@ public class CookingHandling : MonoBehaviour
         }
         else if (
         CookingDict.ContainsKey(dish_key)) {
-            Debug.Log(CookingDict[dish_key]); //TODO: Remove
-            cookedDish = "BowlOfGoodies"; // Replace with CookingDict[dish_key]
+            // Files are named with spacing, so we have to remove the space to find the resource
+            cookedDish = CookingDict[dish_key].Replace(" ", string.Empty); 
         }
         else {
-            Debug.Log("Bowl of goods"); // TODO: Remove
             cookedDish = "BowlOfGoodies"; // Replace with "Bowl of goods"
         }
 

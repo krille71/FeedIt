@@ -6329,6 +6329,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredients.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredients.Array.data[4]
+      value: 
+      objectReference: {fileID: 4727836811108053060, guid: a536f83b63a6341219759da75ef81e7f,
+        type: 3}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[2]
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[1]
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[0]
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504607340005908031, guid: 58d3c5eccd563c14182f9d371aadc714,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[4]
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2964091630657692679, guid: 58d3c5eccd563c14182f9d371aadc714,
         type: 3}
       propertyPath: m_Name

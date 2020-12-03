@@ -1,3 +1,4 @@
 Strawberry,Egg,Banana;Fruit Smoothie
-Strawberry,Egg,Strawberry;Strawberry omelette
-Strawberry,Strawberry,Strawberry;Strawberry
+Strawberry,Egg,Strawberry;Strawberry Omelette
+Strawberry,Strawberry,Strawberry;Strawberry Jam
+Blueberry,Blueberry,Blueberry;Blueberry Jam
