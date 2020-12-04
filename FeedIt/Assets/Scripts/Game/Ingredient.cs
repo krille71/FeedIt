@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-
     private CookingHandling cookingHandling;
     private PlayerOstrich ostrich;
     private Beast beast;
-    [SerializeField] private float BEAST_EATING_MOVEMENT = 0.1f;
+    [SerializeField] private float BEAST_EATING_MOVEMENT_START = 0.1f;
 
     void Start()
     {
@@ -41,7 +40,7 @@ public class Ingredient : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Beast"))
         {
-            beast.Move(BEAST_EATING_MOVEMENT);
+            beast.Move(BEAST_EATING_MOVEMENT_START, Beast.FoodType.Ingredient);
             Destroy(gameObject);
         }
     }

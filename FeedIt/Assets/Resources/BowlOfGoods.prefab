@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1827929646705729246}
   - component: {fileID: 2639597140160601153}
   - component: {fileID: 5241583603251627363}
-  - component: {fileID: 3821137326951247890}
   - component: {fileID: 7889304227374283802}
+  - component: {fileID: 3821137326951247890}
   m_Layer: 10
   m_Name: BowlOfGoods
   m_TagString: BowlOfGoodies
@@ -110,21 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3821137326951247890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7980106490456545255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a02dfe6aa0445468e26467336fee98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BEAST_EATING_MOVEMENT: 1
-  scrollSpeed: 10
-  destroyPoistionX: -45
 --- !u!50 &7889304227374283802
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +131,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3821137326951247890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980106490456545255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a02dfe6aa0445468e26467336fee98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BEAST_EATING_MOVEMENT: 1
+  scrollSpeed: 10
+  destroyPoistionX: -45

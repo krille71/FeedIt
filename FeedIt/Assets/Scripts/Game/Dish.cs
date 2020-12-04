@@ -8,11 +8,19 @@ public class Dish : MonoBehaviour
     [SerializeField] private float scrollSpeed = 10f;
     [SerializeField] private float destroyPoistionX = -45f;
 
+    private Beast beast;
+
+    void Start()
+    {
+        beast = GameObject.FindGameObjectWithTag("Beast").GetComponent<Beast>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Beast"))
         {
-            other.gameObject.GetComponent<Beast>().Move(BEAST_EATING_MOVEMENT);
+            Beast.FoodType type = BEAST_EATING_MOVEMENT > 0 ? Beast.FoodType.NormalDish : Beast.FoodType.TranquilizedDish;
+            beast.Move(BEAST_EATING_MOVEMENT, type);
             Destroy(gameObject);
         }
     }
@@ -23,6 +31,6 @@ public class Dish : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-         transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+        transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
     }
 }

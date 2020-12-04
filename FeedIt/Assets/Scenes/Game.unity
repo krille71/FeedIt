@@ -1928,6 +1928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOVE_TIME: 0.5
+  EATING_MOVEMENT_INCREASE: 0.05
+  EATING_INCREASE_TIMER: 60
 --- !u!1 &698340248
 GameObject:
   m_ObjectHideFlags: 0
