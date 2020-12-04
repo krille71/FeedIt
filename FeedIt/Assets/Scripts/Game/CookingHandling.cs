@@ -93,7 +93,7 @@ public class CookingHandling : MonoBehaviour
         bonApetitSound.Play();
     }
 
-    public void CollectIngredient(GameObject ingredient)
+    public bool CollectIngredient(GameObject ingredient)
     {
         var numIngredients = ingredients.Count;
         if(numIngredients < 3)
@@ -102,6 +102,8 @@ public class CookingHandling : MonoBehaviour
             ingredient.transform.position = positions[numIngredients];
             ingredients.Add(ingredient);
             pickUpSound.Play();
+            return true;
         }
+        return false;
     }
 }

@@ -2291,7 +2291,7 @@ GameObject:
   - component: {fileID: 724576866}
   m_Layer: 9
   m_Name: Raccoon
-  m_TagString: Player
+  m_TagString: Racoon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4468,7 +4468,7 @@ GameObject:
   - component: {fileID: 1425267997}
   m_Layer: 9
   m_Name: Ostrich
-  m_TagString: Player
+  m_TagString: Ostrich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4497,6 +4497,7 @@ MonoBehaviour:
   jumpSound: {fileID: 1763153927}
   landingSound: {fileID: 763257056}
   runningSound: {fileID: 801757297}
+  EATING_TIME: 15
 --- !u!61 &1425267998
 BoxCollider2D:
   m_ObjectHideFlags: 0
