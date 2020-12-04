@@ -9,6 +9,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject InGameMenuUI;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject GameOverMenu;
+    [SerializeField] private GameObject Censored;
 
     void Update()
     {
@@ -61,6 +62,7 @@ public class InGameMenu : MonoBehaviour
 
     public void GameOver()
     {
+        Censored.SetActive(true);
         InGameMenuUI.SetActive(true);
         GameOverMenu.SetActive(true);
         Time.timeScale = 0f;
