@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Beast : MonoBehaviour
 {
+    // Enum for the food type the beast is fed
     public enum FoodType
     {
         Ingredient,
@@ -22,6 +23,14 @@ public class Beast : MonoBehaviour
     private float increasedEatingMovement = 0;
     private float eatingIncreaseTimer;
 
+    // Animation values
+    [SerializeField] private float AboveIsAngryX = -9.0f;
+    [SerializeField] private float BelowIsSleepyX = -11.0f;
+
+    // Level end value
+    [SerializeField] private float BelowIsSleepingX = -12.0f;
+    public static bool isSleeping = false;
+
     void Start()
     {
         eatingIncreaseTimer = EATING_INCREASE_TIMER;
@@ -39,17 +48,43 @@ public class Beast : MonoBehaviour
         frameMovement = moveRemainder / MOVE_TIME;
     }
 
+    private void Update()
+    {
+        // Beast starts to sleep if outside of the screen, should initialize zone change
+        if (transform.position.x < BelowIsSleepingX)
+        {
+            isSleeping = true;
+        }
+
+        // Animations
+        if (transform.position.x > AboveIsAngryX)
+        {
+            // TODO set angry animation
+        }
+        else if(transform.position.x < BelowIsSleepyX)
+        {
+            // TODO set sleepy animation
+        }
+        else
+        {
+            // TODO set normal animation
+        }
+    }
+
     private void FixedUpdate()
     {
-        // Movement
-        if (moveRemainder != 0) {
-            transform.position += Vector3.right * frameMovement * Time.deltaTime;
-            float prev = Mathf.Sign(moveRemainder);
-            moveRemainder -= frameMovement * Time.deltaTime;
-            float post = Mathf.Sign(moveRemainder);
+        if (!isSleeping)
+        {
+            // Movement
+            if (moveRemainder != 0) {
+                transform.position += Vector3.right * frameMovement * Time.deltaTime;
+                float prev = Mathf.Sign(moveRemainder);
+                moveRemainder -= frameMovement * Time.deltaTime;
+                float post = Mathf.Sign(moveRemainder);
 
-            if (prev != post)
-                moveRemainder = 0;
+                if (prev != post)
+                    moveRemainder = 0;
+            }
         }
 
         // Handle progressice difficulty 
