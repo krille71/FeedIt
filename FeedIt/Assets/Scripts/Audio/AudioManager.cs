@@ -3,6 +3,10 @@ using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour{
+	//How to put sound where
+	//First find the sounds name in Unity Main sceen AudioManager
+	//Put this command where it can be trigered to play sound
+		//FindObjectOfType<AudioManager>().Play("name_of_sound");
 
 	public static AudioManager instance;
 

@@ -46,6 +46,8 @@ public class Beast : MonoBehaviour
             case FoodType.TranquilizedDish: break;
         }
         frameMovement = moveRemainder / MOVE_TIME;
+        //eating sound
+        FindObjectOfType<AudioManager>().Play("beast_eating_sound");
     }
 
     private void Update()
@@ -87,7 +89,7 @@ public class Beast : MonoBehaviour
             }
         }
 
-        // Handle progressice difficulty 
+        // Handle progressice difficulty
         if (eatingIncreaseTimer <= 0)
         {
             increasedEatingMovement += EATING_MOVEMENT_INCREASE;

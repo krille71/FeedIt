@@ -12,26 +12,26 @@ public class CookingHandling : MonoBehaviour
     [SerializeField] private float COOKING_TIME = 0.5f;
     private float cookingTimer = 0f;
     public static bool isCooking = false;
-  
+
     private List<GameObject> ingredients = new List<GameObject>();
 
     // Sound effects
     public AudioSource pickUpSound;
     public AudioSource bonApetitSound;
 
-    /* 
-       All recipies should be in the recipies.txt. Follow the format: Ingredient,Ingredient,Ingredient;Dish 
+    /*
+       All recipies should be in the recipies.txt. Follow the format: Ingredient,Ingredient,Ingredient;Dish
        Ingredients should prefabs found in Assets/Prefabs/Ingredients and the dishes should be prefabs in Assets/Resources
-       ! NAMES HAS TO BE THE SAME IN THE TXT AND PREFABS, they need to correspond !    
+       ! NAMES HAS TO BE THE SAME IN THE TXT AND PREFABS, they need to correspond !
     */
     private String[] recipies;
     private Dictionary<(string, string, string), string> CookingDict = new Dictionary<(string, string, string), string>();
     private GameObject player;
-    
+
 
     public void Start(){
-        
-        recipies = Resources.Load<TextAsset>("recipies").text.Split('\n'); 
+
+        recipies = Resources.Load<TextAsset>("recipies").text.Split('\n');
         player = GameObject.Find("Ostrich");
 
         foreach (var recipy in recipies)
@@ -42,7 +42,7 @@ public class CookingHandling : MonoBehaviour
             var recipy_ingredients = (recipy_split_ingredients[0],recipy_split_ingredients[1],recipy_split_ingredients[2]);
             String recipy_dish = recipy_split[1];
 
-            CookingDict.Add(recipy_ingredients, recipy_dish);  
+            CookingDict.Add(recipy_ingredients, recipy_dish);
         }
     }
 
@@ -51,6 +51,8 @@ public class CookingHandling : MonoBehaviour
         {
             isCooking = true;
             cookingTimer = COOKING_TIME;
+            //Cooking sound
+            FindObjectOfType<AudioManager>().Play("cooking_sound");
         }
         else if (isCooking)
         {
@@ -79,7 +81,7 @@ public class CookingHandling : MonoBehaviour
         else if (
         CookingDict.ContainsKey(dish_key)) {
             // Files are named with spacing, so we have to remove the space to find the resource
-            cookedDish = CookingDict[dish_key].Replace(" ", string.Empty); 
+            cookedDish = CookingDict[dish_key].Replace(" ", string.Empty);
         }
         else {
             cookedDish = "BowlOfGoodies"; // Replace with "Bowl of goods"
