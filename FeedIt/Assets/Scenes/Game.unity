@@ -640,6 +640,78 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: cooking_sound
+    clip: {fileID: 8300000, guid: 8004e066eba95ac429300bf7079ff78a, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bird_jump
+    clip: {fileID: 8300000, guid: c217f5a8ba7f2a24fa526073c3e83799, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: racoon_jump
+    clip: {fileID: 8300000, guid: fcfacb7edd3490e498d07a2608d83046, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bonApetit
+    clip: {fileID: 8300000, guid: 2ca705b0a82db4c65b2c3bcc268db74d, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: landing_sound
+    clip: {fileID: 8300000, guid: 60a5e230be68b41f6b3760c471e87593, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: beast_eating_sound
+    clip: {fileID: 8300000, guid: 49151a759c94d604a8fb0005e4243c17, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: running_sound
+    clip: {fileID: 8300000, guid: 4deb165b4ba414953933f76e67e677e3, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: beast_eating_player_sound
+    clip: {fileID: 8300000, guid: 31f9081c947420a438e94c8ca11f6cb4, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &268271541
 Transform:
   m_ObjectHideFlags: 0
