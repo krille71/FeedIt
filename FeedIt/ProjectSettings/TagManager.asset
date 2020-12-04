@@ -17,6 +17,7 @@ TagManager:
   - Blueberry
   - Racoon
   - Ostrich
+  - ScoreDisplay
   layers:
   - Default
   - TransparentFX
