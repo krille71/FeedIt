@@ -1376,6 +1376,26 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7191526384720242259, guid: 03d08985e27364900b3e8c31ce1cc46f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191526384720242259, guid: 03d08985e27364900b3e8c31ce1cc46f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191526384720242259, guid: 03d08985e27364900b3e8c31ce1cc46f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191526384720242261, guid: 03d08985e27364900b3e8c31ce1cc46f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7191526384720242263, guid: 03d08985e27364900b3e8c31ce1cc46f,
         type: 3}
       propertyPath: m_Name
