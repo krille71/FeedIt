@@ -18,6 +18,8 @@ TagManager:
   - Racoon
   - Ostrich
   - ScoreDisplay
+  - ScoreCounter
+  - FinalScoreText
   layers:
   - Default
   - TransparentFX

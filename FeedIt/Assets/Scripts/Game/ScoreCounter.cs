@@ -23,4 +23,9 @@ public class ScoreCounter : MonoBehaviour
         score = (int)timer;
         scoreDisplay.text = score.ToString();
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class InGameMenu : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject GameOverMenu;
     [SerializeField] private GameObject Censored;
+    [SerializeField] private GameObject FinalScore;
+
+    private ScoreCounter scoreCounter;
+
+    void Start()
+    {
+        scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<ScoreCounter>();
+    }
 
     void Update()
     {
@@ -64,6 +73,7 @@ public class InGameMenu : MonoBehaviour
     {
         Censored.SetActive(true);
         InGameMenuUI.SetActive(true);
+        FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
         GameOverMenu.SetActive(true);
         Time.timeScale = 0f;
     }
