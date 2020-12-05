@@ -2511,8 +2511,8 @@ MonoBehaviour:
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2.5
+  fallMultiplier: 4
+  lowJumpMultiplier: 4
   jumpVelocity: 10
   COYOTE_TIME: 0.1
   JUMP_BUFFER_TIME: 0.1
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   landingSound: {fileID: 763257056}
   runningSound: {fileID: 801757297}
   ostrich: {fileID: 1425267997}
-  DETACH_TIME: 0.3
+  DETACH_TIME: 0
   RETACH_TIME: 0.3
   localPosition: {x: -0.31, y: 0.44, z: -0.1}
 --- !u!61 &724576867
@@ -5123,8 +5123,8 @@ MonoBehaviour:
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2.5
+  fallMultiplier: 4
+  lowJumpMultiplier: 4
   jumpVelocity: 10
   COYOTE_TIME: 0.1
   JUMP_BUFFER_TIME: 0.1
