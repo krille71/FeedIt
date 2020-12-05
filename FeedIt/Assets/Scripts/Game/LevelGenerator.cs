@@ -6,9 +6,13 @@ public class LevelGenerator : MonoBehaviour
 {
 
     [SerializeField] private List<Transform> chunks;
-    [SerializeField] private const float ORIGIN_DISTANCE_SPAWN_CHUNK = 30f;
+    [SerializeField] private Transform endChunk;
+    [SerializeField] private const float ORIGIN_DISTANCE_SPAWN_CHUNK = 0.1f;
     private Vector3 width = new Vector3(30f, 0f, 0f);
     private Transform lastChunk;
+
+    private bool spawnedLastChunk = false;
+    public static bool gameFinished = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +33,20 @@ public class LevelGenerator : MonoBehaviour
     // Spawns a chunk
     private void spawnChunk(Vector3 pos)
     {
-        Transform chunk = chunks[Random.Range(0, chunks.Count)];
-        lastChunk = Instantiate(chunk, pos + width, Quaternion.identity);
+        if(spawnedLastChunk && Beast.isSleeping)
+        {
+            gameFinished = true;
+        }
+        else if (Beast.isSleeping)
+        {
+            lastChunk = Instantiate(endChunk, pos + width, Quaternion.identity);
+            spawnedLastChunk = true;
+        }
+        else
+        {
+            // TODO make so that the same chunk can not appear twice in a row
+            Transform chunk = chunks[Random.Range(0, chunks.Count)];
+            lastChunk = Instantiate(chunk, pos + width, Quaternion.identity);
+        }
     }
 }

@@ -12,6 +12,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject GameOverMenu;
     [SerializeField] private GameObject Censored;
     [SerializeField] private GameObject FinalScore;
+    [SerializeField] private GameObject GameOverText;
 
     private ScoreCounter scoreCounter;
 
@@ -22,17 +23,25 @@ public class InGameMenu : MonoBehaviour
 
     void Update()
     {
-        // Pause and resume by pressing escape if not in game over
-        if (!GameOverMenu.active && Input.GetKeyDown(KeyCode.Escape))
+        if (!GameOverMenu.active)
         {
-            if (GameIsPaused)
+            if (LevelGenerator.gameFinished)
             {
-                Resume();
+                GameOver();
             }
-            else
+
+            // Pause and resume by pressing escape if not in game over
+            else if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Pause();
-                PauseMenu.SetActive(true);
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                    PauseMenu.SetActive(true);
+                }
             }
         }
     }
@@ -55,12 +64,16 @@ public class InGameMenu : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
+        LevelGenerator.gameFinished = false;
+        Beast.isSleeping = false;
         SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
         Resume();
+        LevelGenerator.gameFinished = false;
+        Beast.isSleeping = false;
         SceneManager.LoadScene(0);
     }
 
@@ -71,10 +84,21 @@ public class InGameMenu : MonoBehaviour
 
     public void GameOver()
     {
-        Censored.SetActive(true);
         InGameMenuUI.SetActive(true);
-        FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
         GameOverMenu.SetActive(true);
+
+        FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
+
+        if (!LevelGenerator.gameFinished)
+        {
+            Censored.SetActive(true);
+            GameOverText.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
+        }
+        else
+        {
+            GameOverText.GetComponent<TextMeshProUGUI>().text = "DEMO FINISHED";
+        }
+
         Time.timeScale = 0f;
     }
 }
