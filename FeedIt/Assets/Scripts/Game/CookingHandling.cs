@@ -25,7 +25,8 @@ public class CookingHandling : MonoBehaviour
        ! NAMES HAS TO BE THE SAME IN THE TXT AND PREFABS, they need to correspond !
     */
     private String[] recipies;
-    private Dictionary<(string, string, string), string> CookingDict = new Dictionary<(string, string, string), string>();
+    /* private var dish_score = new List<(string,int)>(); */
+    private Dictionary<(string, string, string), String[]> CookingDict = new Dictionary<(string, string, string), String[]>();
     private GameObject player;
 
 
@@ -38,11 +39,11 @@ public class CookingHandling : MonoBehaviour
         {
             var recipy_split = recipy.Split(';');
             var recipy_split_ingredients = recipy_split[0].Split(',');
+            String[] recipy_dish_score = recipy_split[1].Split(',');
             Array.Sort(recipy_split_ingredients);
             var recipy_ingredients = (recipy_split_ingredients[0],recipy_split_ingredients[1],recipy_split_ingredients[2]);
-            String recipy_dish = recipy_split[1];
 
-            CookingDict.Add(recipy_ingredients, recipy_dish);
+            CookingDict.Add(recipy_ingredients, recipy_dish_score);
         }
     }
 
@@ -73,6 +74,7 @@ public class CookingHandling : MonoBehaviour
         var dish_key = (ingredients_sorted[0].tag, ingredients_sorted[1].tag, ingredients_sorted[2].tag);
         GameObject dish;
         String cookedDish;
+        int dish_score = 30; // Default for BowlOfGoods and BowlOfGoodsTranquilizer
 
         if (ingredients_sorted[0].tag == "Mushroom" || ingredients_sorted[1].tag == "Mushroom" || ingredients_sorted[2].tag == "Mushroom")
         {
@@ -80,17 +82,18 @@ public class CookingHandling : MonoBehaviour
         }
         else if (
         CookingDict.ContainsKey(dish_key)) {
-            // Files are named with spacing, so we have to remove the space to find the resource
-            cookedDish = CookingDict[dish_key].Replace(" ", string.Empty);
+            cookedDish = CookingDict[dish_key][0];
+            dish_score = Int16.Parse(CookingDict[dish_key][1]);
         }
         else {
-            cookedDish = "BowlOfGoods"; // Replace with "Bowl of goods"
+            cookedDish = "BowlOfGoods";
         }
 
         ingredients.ForEach(Destroy);
         ingredients = new List<GameObject>();
 
         dish = Instantiate(Resources.Load(cookedDish, typeof(GameObject))) as GameObject;
+        Debug.Log("dish score: " + dish_score); // THE SCORE CORRESPONDING TO THE COOKED DISH! Todo: TAKE THIS AND UPDATE SCORE!
         dish.transform.position = player.transform.position;
         bonApetitSound.Play();
     }
