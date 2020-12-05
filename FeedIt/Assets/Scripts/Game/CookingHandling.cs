@@ -84,7 +84,7 @@ public class CookingHandling : MonoBehaviour
             cookedDish = CookingDict[dish_key].Replace(" ", string.Empty);
         }
         else {
-            cookedDish = "BowlOfGoodies"; // Replace with "Bowl of goods"
+            cookedDish = "BowlOfGoods"; // Replace with "Bowl of goods"
         }
 
         ingredients.ForEach(Destroy);
