@@ -120,7 +120,7 @@ public class PlayerRacoon : Player
                 raccoonAnim.SetBool("Running", true);
                 }
         }else{
-            if(CookingHandling.isCooking){                
+            if(CookingHandling.isCooking){
                 raccoonAnim.SetBool("Jumping", false);
                 raccoonAnim.SetBool("Falling", false);
                 raccoonAnim.SetBool("Running", false);
@@ -132,5 +132,9 @@ public class PlayerRacoon : Player
             raccoonAnim.SetBool("Cooking", false);
             }
         }
+    }
+//play racoon Jumpsound
+    protected override void playJumpSound(){
+      FindObjectOfType<AudioManager>().Play("racoon_jump");
     }
 }

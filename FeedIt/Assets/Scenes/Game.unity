@@ -723,7 +723,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: cooking_sound
     clip: {fileID: 8300000, guid: 8004e066eba95ac429300bf7079ff78a, type: 3}
-    volume: 0.75
+    volume: 0.5
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: beast_eating_sound
     clip: {fileID: 8300000, guid: 49151a759c94d604a8fb0005e4243c17, type: 3}
-    volume: 0.75
+    volume: 0.5
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
@@ -790,7 +790,34 @@ MonoBehaviour:
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
-    loop: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bird_eat
+    clip: {fileID: 8300000, guid: a264af547bd80b54baa2d456b6d426fc, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: raor_beast
+    clip: {fileID: 8300000, guid: 50ea168da180db54f89d95d99a4b78d7, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: bird_dying
+    clip: {fileID: 8300000, guid: 73bfd32324f72f04aa92eb4a573ad442, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &268271541

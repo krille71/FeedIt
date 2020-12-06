@@ -73,9 +73,13 @@ public class PlayerOstrich : Player
         if(holdingEatKey && eatingTimer <= 0)
         {
             eatingTimer = EATING_TIME;
-            // TODO play ostrich eating sound
+            FindObjectOfType<AudioManager>().Play("bird_eat");
             return true;
         }
         return false;
+    }
+    //Plays ostaerage jumpound
+    protected override void playJumpSound(){
+      FindObjectOfType<AudioManager>().Play("bird_jump");
     }
 }
