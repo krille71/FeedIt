@@ -78,7 +78,7 @@ public class CookingHandling : MonoBehaviour
 
         if (ingredients_sorted[0].tag == "Mushroom" || ingredients_sorted[1].tag == "Mushroom" || ingredients_sorted[2].tag == "Mushroom")
         {
-            cookedDish = "BowlOfGoodsTranquilizer";
+            cookedDish = "TranquilizerDish";
         }
         else if (
         CookingDict.ContainsKey(dish_key)) {
@@ -86,7 +86,7 @@ public class CookingHandling : MonoBehaviour
             dish_score = Int16.Parse(CookingDict[dish_key][1]);
         }
         else {
-            cookedDish = "BowlOfGoods";
+            cookedDish = "BowlOfGoodies";
         }
 
         ingredients.ForEach(Destroy);
