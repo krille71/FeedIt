@@ -30,14 +30,17 @@ public class Beast : MonoBehaviour
     // Level end value
     [SerializeField] private float BelowIsSleepingX = -12.0f;
     public static bool isSleeping = false;
+    private Animator anim;
 
     void Start()
     {
         eatingIncreaseTimer = EATING_INCREASE_TIMER;
+         anim = GetComponent<Animator>();
     }
 
     public void Move(float length, FoodType type)
     {
+        anim.SetTrigger("Eat");
         moveRemainder += length;
         switch (type)
         {
@@ -48,6 +51,7 @@ public class Beast : MonoBehaviour
         frameMovement = moveRemainder / MOVE_TIME;
         //eating sound
         FindObjectOfType<AudioManager>().Play("beast_eating_sound");
+        
     }
 
     private void Update()
