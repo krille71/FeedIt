@@ -66,7 +66,8 @@ public class Player : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpVelocity;
             mayJump = 0;
             jumpBuffer = 0;
-            jumpSound.Play();
+            this.playJumpSound();
+
         }
 
         // Jump through semisolid by deactivating their hitbox
@@ -106,7 +107,7 @@ public class Player : MonoBehaviour
 
     // Toggles between running, jumping and falling depending on character velocity on Y-axis
     protected virtual void UpdatePlayerAnimation(float _velocity){
-        
+
     }
 
     // Boxcast a tiny box from the bottom of the player and returns all hits
@@ -146,5 +147,10 @@ public class Player : MonoBehaviour
         return cast.collider != null
             && !boxCollider.bounds.Intersects(cast.transform.GetComponent<BoxCollider2D>().bounds)
             && rigidbody.velocity.y <= 0;
+    }
+
+    //should play jumpsound for induvidaul character ////jumpSound.Play();
+    protected virtual void playJumpSound(){
+
     }
 }
