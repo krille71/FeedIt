@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-
     [SerializeField] private List<Transform> chunks;
     [SerializeField] private Transform endChunk;
     [SerializeField] private const float ORIGIN_DISTANCE_SPAWN_CHUNK = 0.1f;
-    private Vector3 width = new Vector3(30f, 0f, 0f);
+    private Vector3 width = new Vector3(50f, 0f, 0f);
     private Transform lastChunk;
 
     private bool spawnedLastChunk = false;
     public bool gameFinished = false;
+
+    private int lastChunkNumber = -1;
 
     private Beast beast;
 
@@ -47,8 +48,15 @@ public class LevelGenerator : MonoBehaviour
         }
         else
         {
-            // TODO make so that the same chunk can not appear twice in a row
-            Transform chunk = chunks[Random.Range(0, chunks.Count)];
+            // Random new chunk that cannot be the last one
+            int chunkNumber = lastChunkNumber;
+            while(chunkNumber == lastChunkNumber)
+            {
+                chunkNumber = Random.Range(0, chunks.Count);
+            }
+
+            Transform chunk = chunks[chunkNumber];
+            lastChunkNumber = chunkNumber;
             lastChunk = Instantiate(chunk, pos + width, Quaternion.identity);
         }
     }

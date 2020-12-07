@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 10
-  destroyPoistionX: -30
+  destroyPoistionX: -55
 --- !u!1001 &1721460413689893357
 PrefabInstance:
   m_ObjectHideFlags: 0
