@@ -21,6 +21,8 @@ TagManager:
   - ScoreCounter
   - FinalScoreText
   - GameOverText
+  - LevelGenerator
+  - InGameMenu
   layers:
   - Default
   - TransparentFX

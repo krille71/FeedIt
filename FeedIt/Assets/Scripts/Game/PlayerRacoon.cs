@@ -20,9 +20,16 @@ public class PlayerRacoon : Player
     bool pressedJumpKey = false;
     bool pressedDownKey = false;
 
+    private CookingHandling cooking;
+
     private void Awake(){
         raccoonAnim = GetComponent<Animator>();
+    }
 
+    protected override void Start()
+    {
+        base.Start();
+        cooking = GameObject.FindGameObjectWithTag("Collection").GetComponent<CookingHandling>();
     }
 
     protected override void KeyInput()
@@ -54,7 +61,7 @@ public class PlayerRacoon : Player
     protected override void HandleInput()
     {
         // Detach
-        if (transform.parent != null && detachTimer < 0 && !CookingHandling.isCooking)
+        if (transform.parent != null && detachTimer < 0 && !cooking.isCooking)
         {
             if (pressedJumpKey || pressedDownKey)
             {
@@ -120,7 +127,7 @@ public class PlayerRacoon : Player
                 raccoonAnim.SetBool("Running", true);
                 }
         }else{
-            if(CookingHandling.isCooking){
+            if(cooking.isCooking){
                 raccoonAnim.SetBool("Jumping", false);
                 raccoonAnim.SetBool("Falling", false);
                 raccoonAnim.SetBool("Running", false);

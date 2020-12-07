@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour{
 	}
 
 	public void Play(string sound){
-		Debug.LogWarning("Trying to play sound");
+		//Debug.LogWarning("Trying to play sound");
 		Sound s = FindSound(sound);
 
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));

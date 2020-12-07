@@ -9,10 +9,12 @@ public class ScoreCounter : MonoBehaviour
     private float timer = 0;
     private int score = 0;
     private TextMeshProUGUI scoreDisplay;
+    private InGameMenu menu;
 
     // Start is called before the first frame update
     void Start()
     {
+        menu = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<InGameMenu>();
         scoreDisplay = GameObject.FindGameObjectWithTag("ScoreDisplay").GetComponent<TextMeshProUGUI>();
     }
 
@@ -24,7 +26,7 @@ public class ScoreCounter : MonoBehaviour
         scoreDisplay.text = score.ToString();
 
         // Grey out text if paused
-        if (InGameMenu.GameIsPaused)
+        if (menu.GameIsPaused)
         {
             scoreDisplay.color = new Color32(255, 255, 255, 155);
         }

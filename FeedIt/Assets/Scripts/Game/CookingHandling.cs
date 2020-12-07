@@ -11,7 +11,7 @@ public class CookingHandling : MonoBehaviour
     [SerializeField] private List<Vector3> positions;
     [SerializeField] private float COOKING_TIME = 0.5f;
     private float cookingTimer = 0f;
-    public static bool isCooking = false;
+    public bool isCooking = false;
 
     private List<GameObject> ingredients = new List<GameObject>();
 

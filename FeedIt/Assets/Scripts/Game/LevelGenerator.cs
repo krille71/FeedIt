@@ -12,11 +12,14 @@ public class LevelGenerator : MonoBehaviour
     private Transform lastChunk;
 
     private bool spawnedLastChunk = false;
-    public static bool gameFinished = false;
+    public bool gameFinished = false;
+
+    private Beast beast;
 
     // Start is called before the first frame update
     void Start()
     {
+        beast = GameObject.FindGameObjectWithTag("Beast").GetComponent<Beast>();
         spawnChunk(new Vector3(0f, 0f, 0f));
     }
 
@@ -33,11 +36,11 @@ public class LevelGenerator : MonoBehaviour
     // Spawns a chunk
     private void spawnChunk(Vector3 pos)
     {
-        if(spawnedLastChunk && Beast.isSleeping)
+        if(spawnedLastChunk && beast.isSleeping)
         {
             gameFinished = true;
         }
-        else if (Beast.isSleeping)
+        else if (beast.isSleeping)
         {
             lastChunk = Instantiate(endChunk, pos + width, Quaternion.identity);
             spawnedLastChunk = true;

@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 389096964}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: InGameMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,6 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e259faeafdfbd54c910e5a1175ca5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameIsPaused: 0
   InGameMenuUI: {fileID: 432568224}
   PauseMenu: {fileID: 81453638}
   GameOverMenu: {fileID: 354426997}
@@ -2139,6 +2140,7 @@ MonoBehaviour:
   AboveIsAngryX: -9
   BelowIsSleepyX: -11
   BelowIsSleepingX: -12
+  isSleeping: 0
 --- !u!1 &698340248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5480,6 +5482,7 @@ MonoBehaviour:
   - {x: -8, y: 5, z: 1}
   - {x: -7, y: 5, z: 1}
   COOKING_TIME: 3
+  isCooking: 0
   pickUpSound: {fileID: 1698402509}
   bonApetitSound: {fileID: 501943659}
 --- !u!114 &1546678165
@@ -7116,7 +7119,7 @@ GameObject:
   - component: {fileID: 2131698196}
   m_Layer: 0
   m_Name: LevelGenerator
-  m_TagString: Untagged
+  m_TagString: LevelGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7138,6 +7141,7 @@ MonoBehaviour:
   - {fileID: 8036561027848056953, guid: 43195b5366712a54db8de2ade4bc40b2, type: 3}
   endChunk: {fileID: 8024869481026373213, guid: ef11c09582c836444ae6ee8006f1f7fe,
     type: 3}
+  gameFinished: 0
 --- !u!4 &2131698197
 Transform:
   m_ObjectHideFlags: 0

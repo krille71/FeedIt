@@ -6,7 +6,7 @@ using TMPro;
 
 public class InGameMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
     [SerializeField] private GameObject InGameMenuUI;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject GameOverMenu;
@@ -14,18 +14,25 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject FinalScore;
     [SerializeField] private GameObject GameOverText;
 
+    private LevelGenerator levelGenerator;
+    private Beast beast;
     private ScoreCounter scoreCounter;
 
     void Start()
     {
+        beast = GameObject.FindGameObjectWithTag("Beast").GetComponent<Beast>();
+        levelGenerator = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<LevelGenerator>();
         scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<ScoreCounter>();
     }
 
     void Update()
     {
+        if(!GameIsPaused)
+            Time.timeScale = 1f;
+
         if (!GameOverMenu.active)
         {
-            if (LevelGenerator.gameFinished)
+            if (levelGenerator.gameFinished)
             {
                 GameOver();
             }
@@ -52,6 +59,7 @@ public class InGameMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         PauseMenu.SetActive(false);
+        GameOverMenu.SetActive(false);
     }
 
     private void Pause()
@@ -64,16 +72,11 @@ public class InGameMenu : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        LevelGenerator.gameFinished = false;
-        Beast.isSleeping = false;
         SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
-        Resume();
-        LevelGenerator.gameFinished = false;
-        Beast.isSleeping = false;
         SceneManager.LoadScene(0);
     }
 
@@ -82,14 +85,18 @@ public class InGameMenu : MonoBehaviour
         Application.Quit();
     }
 
+    /*
+        Initialize game over screen. Different text depending on if the beast is sleeping or is fighting the player 
+    */
     public void GameOver()
     {
+        GameIsPaused = true;
         InGameMenuUI.SetActive(true);
         GameOverMenu.SetActive(true);
 
         FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
 
-        if (!LevelGenerator.gameFinished)
+        if (!levelGenerator.gameFinished)
         {
             Censored.SetActive(true);
             GameOverText.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
