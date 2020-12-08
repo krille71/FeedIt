@@ -28,12 +28,13 @@ public class CookingHandling : MonoBehaviour
     /* private var dish_score = new List<(string,int)>(); */
     private Dictionary<(string, string, string), String[]> CookingDict = new Dictionary<(string, string, string), String[]>();
     private GameObject player;
-
+    private ScoreCounter scoreCounter;
 
     public void Start(){
 
         recipies = Resources.Load<TextAsset>("recipies").text.Split('\n');
         player = GameObject.Find("Ostrich");
+        scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<ScoreCounter>();
 
         foreach (var recipy in recipies)
         {
@@ -94,6 +95,7 @@ public class CookingHandling : MonoBehaviour
 
         dish = Instantiate(Resources.Load(cookedDish, typeof(GameObject))) as GameObject;
         Debug.Log("dish score: " + dish_score); // THE SCORE CORRESPONDING TO THE COOKED DISH! Todo: TAKE THIS AND UPDATE SCORE!
+        scoreCounter.addScore(dish_score);
         dish.transform.position = player.transform.position;
         bonApetitSound.Play();
     }
