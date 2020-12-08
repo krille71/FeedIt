@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerRacoon : Player
 {
-    protected Animator raccoonAnim;
-
     [SerializeField] private PlayerOstrich ostrich;
     [SerializeField] private float DETACH_TIME = 0.0f;
     [SerializeField] private float RETACH_TIME = 0.3f;
@@ -21,10 +19,6 @@ public class PlayerRacoon : Player
     bool pressedDownKey = false;
 
     private CookingHandling cooking;
-
-    private void Awake(){
-        raccoonAnim = GetComponent<Animator>();
-    }
 
     protected override void Start()
     {
@@ -96,6 +90,8 @@ public class PlayerRacoon : Player
         prevOverOstrich = overOstrich;
         var localPos = ostrich.transform.InverseTransformPoint(transform.position);
         overOstrich = localPos.y > localPosition.y;
+
+        // Animations
         UpdateRaccoonAnimation(rigidbody.velocity.y);
 
         // Decrease cooldowns
@@ -106,41 +102,44 @@ public class PlayerRacoon : Player
 
 
     private void UpdateRaccoonAnimation(float _velocity){
-        //Debug.Log("UpdateRaccoonAnimation: " + _velocity);
         if(transform.parent == null){
             if (_velocity > 0)
             {
-                raccoonAnim.SetBool("Jumping", true);
-                raccoonAnim.SetBool("Falling", false);
-                raccoonAnim.SetBool("Running", false);
+                anim.SetBool("Jumping", true);
+                anim.SetBool("Falling", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Cooking", false);
             }
             else if (_velocity < 0)
             {
-                raccoonAnim.SetBool("Jumping", false);
-                raccoonAnim.SetBool("Falling", true);
-                raccoonAnim.SetBool("Running", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", true);
+                anim.SetBool("Running", false);
+                anim.SetBool("Cooking", false);
             }
             else
             {
-                raccoonAnim.SetBool("Jumping", false);
-                raccoonAnim.SetBool("Falling", false);
-                raccoonAnim.SetBool("Running", true);
-                }
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                anim.SetBool("Running", true);
+                anim.SetBool("Cooking", false);
+            }
         }else{
             if(cooking.isCooking){
-                raccoonAnim.SetBool("Jumping", false);
-                raccoonAnim.SetBool("Falling", false);
-                raccoonAnim.SetBool("Running", false);
-                raccoonAnim.SetBool("Cooking", true);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Cooking", true);
             }else{
-            raccoonAnim.SetBool("Jumping", false);
-            raccoonAnim.SetBool("Falling", false);
-            raccoonAnim.SetBool("Running", false);
-            raccoonAnim.SetBool("Cooking", false);
+                anim.SetBool("Jumping", false);
+                anim.SetBool("Falling", false);
+                anim.SetBool("Running", false);
+                anim.SetBool("Cooking", false);
             }
         }
     }
-//play racoon Jumpsound
+
+    // play racoon Jumpsound
     protected override void playJumpSound(){
       FindObjectOfType<AudioManager>().Play("racoon_jump");
     }

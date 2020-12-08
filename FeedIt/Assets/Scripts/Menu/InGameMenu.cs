@@ -38,7 +38,7 @@ public class InGameMenu : MonoBehaviour
             }
 
             // Pause and resume by pressing escape if not in game over
-            else if (Input.GetKeyDown(KeyCode.Escape))
+            else if (Input.GetKeyDown(KeyCode.P))
             {
                 if (GameIsPaused)
                 {
