@@ -32,6 +32,8 @@ public class Beast : MonoBehaviour
     public bool isSleeping = false;
     private Animator anim;
 
+    [SerializeField] private float MaxX = -6.0f;
+
     void Start()
     {
         eatingIncreaseTimer = EATING_INCREASE_TIMER;
@@ -87,7 +89,7 @@ public class Beast : MonoBehaviour
         if (!isSleeping)
         {
             // Movement
-            if (moveRemainder != 0) {
+            if (moveRemainder != 0 && transform.position.x < MaxX) {
                 transform.position += Vector3.right * frameMovement * Time.deltaTime;
                 float prev = Mathf.Sign(moveRemainder);
                 moveRemainder -= frameMovement * Time.deltaTime;
@@ -95,6 +97,13 @@ public class Beast : MonoBehaviour
 
                 if (prev != post)
                     moveRemainder = 0;
+
+                // Set max position
+                if (transform.position.x > MaxX)
+                {
+                    transform.position -= Vector3.right * transform.position.x;
+                    transform.position += Vector3.right * MaxX;
+                }
             }
         }
 
