@@ -68,15 +68,17 @@ public class Beast : MonoBehaviour
         // Animations
         if (transform.position.x > AboveIsAngryX)
         {
-            // TODO set angry animation
+            anim.SetBool("Angry", true);
         }
         else if(transform.position.x < BelowIsSleepyX)
         {
-            // TODO set sleepy animation
+            anim.SetBool("Sleepy", true);
+            
         }
         else
         {
-            // TODO set normal animation
+            anim.SetBool("Sleepy", false);
+            anim.SetBool("Angry", false);
         }
     }
 

@@ -74,6 +74,7 @@ public class PlayerOstrich : Player
         {
             eatingTimer = EATING_TIME;
             FindObjectOfType<AudioManager>().Play("bird_eat");
+            anim.SetTrigger("Eat");
             return true;
         }
         return false;
