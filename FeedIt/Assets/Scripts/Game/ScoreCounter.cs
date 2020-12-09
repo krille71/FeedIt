@@ -40,10 +40,12 @@ public class ScoreCounter : MonoBehaviour
         if (menu.GameIsPaused)
         {
             scoreDisplay.color = new Color32(255, 255, 255, 155);
+            addDishScore.color = new Color32(255, 255, 255, 155);
         }
         else
         {
             scoreDisplay.color = new Color32(255, 255, 255, 255);
+            addDishScore.color = new Color32(255, 255, 255, 255);
         }
     }
 
