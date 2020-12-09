@@ -16,7 +16,7 @@ public class Dish : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
         if (other.gameObject.CompareTag("Beast"))
         {
             Beast.FoodType type = BEAST_EATING_MOVEMENT > 0 ? Beast.FoodType.NormalDish : Beast.FoodType.TranquilizedDish;

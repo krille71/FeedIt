@@ -19,6 +19,9 @@ public class CookingHandling : MonoBehaviour
     public AudioSource pickUpSound;
     public AudioSource bonApetitSound;
 
+    private GameObject activeCookedDish;
+    private Rigidbody2D activeCookedDish_rb;
+
     /*
        All recipies should be in the recipies.txt. Follow the format: Ingredient,Ingredient,Ingredient;Dish
        Ingredients should prefabs found in Assets/Prefabs/Ingredients and the dishes should be prefabs in Assets/Resources
@@ -94,8 +97,11 @@ public class CookingHandling : MonoBehaviour
         ingredients = new List<GameObject>();
 
         dish = Instantiate(Resources.Load(cookedDish, typeof(GameObject))) as GameObject;
+        activeCookedDish = dish;
         scoreCounter.addScore(dish_score);
         dish.transform.position = player.transform.position;
+        activeCookedDish_rb = activeCookedDish.GetComponent<Rigidbody2D>();
+        activeCookedDish_rb.velocity = new Vector2(15.0f, 10.0f);
         bonApetitSound.Play();
     }
 
