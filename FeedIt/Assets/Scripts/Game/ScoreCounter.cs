@@ -14,6 +14,8 @@ public class ScoreCounter : MonoBehaviour
     private InGameMenu menu;
     private float timeToShowdish = 0;
 
+    private string scoreFill = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,21 @@ public class ScoreCounter : MonoBehaviour
 
         score = scoreFromDishes + (int)timer;
         
-        scoreDisplay.text = score.ToString();
+        if (score <= 9)
+        {
+            scoreFill = "0000";
+        } else if (score <= 99)
+        {
+            scoreFill = "000";
+        } else if (score <= 999)
+        {
+            scoreFill = "00";
+        } else if (score <= 9999)
+        {
+            scoreFill = "0";
+        }
+
+        scoreDisplay.text = scoreFill + score.ToString();
 
         if(((int)timer - (int)timeToShowdish) > 2 && (int)timeToShowdish != 0){
             addDishScore.text = "";
@@ -40,10 +56,12 @@ public class ScoreCounter : MonoBehaviour
         if (menu.GameIsPaused)
         {
             scoreDisplay.color = new Color32(255, 255, 255, 155);
+            addDishScore.color = new Color32(255, 255, 255, 155);
         }
         else
         {
             scoreDisplay.color = new Color32(255, 255, 255, 255);
+            addDishScore.color = new Color32(255, 255, 255, 255);
         }
     }
 

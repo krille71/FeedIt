@@ -141,6 +141,9 @@ public class PlayerRacoon : Player
 
     // play racoon Jumpsound
     protected override void playJumpSound(){
-      FindObjectOfType<AudioManager>().Play("racoon_jump");
+        if(transform.parent == null)
+        {
+            FindObjectOfType<AudioManager>().Play("racoon_jump");
+        }
     }
 }

@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 114, y: 120}
+  m_AnchoredPosition: {x: 173, y: 120}
   m_SizeDelta: {x: -169.60648, y: -206.112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46670125
@@ -177,11 +177,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ostrich: Up & Down
+  m_text: 'Ostrich:     Up & Down
 
-    Racoon:  W & S
+    Ostrich eat: Right
 
-    Pause:   P'
+    Racoon:      W & S
+
+    Pause:      
+    P'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 980ba267f2eb0e64b896dc79cdcd4992, type: 2}
   m_sharedMaterial: {fileID: -2159384523065331046, guid: 980ba267f2eb0e64b896dc79cdcd4992,
@@ -246,7 +249,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 51.035065, z: 190.32211, w: -158.40361}
+  m_margin: {x: -95.35252, y: 51.035065, z: 236.0257, w: -158.40361}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -275,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &81821228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1485,7 +1488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: 120}
+  m_AnchoredPosition: {x: -57, y: 120}
   m_SizeDelta: {x: -169.60648, y: -206.112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523557379
@@ -1510,14 +1513,14 @@ MonoBehaviour:
   m_text: 'Kristoffer Almroth:  Lead Programmer
 
     David Magnusson:     Programmer
+    & Website
 
-    Hugo
-    Bergqvist:      Lead Artist
+    Hugo Bergqvist:      Lead Artist & Animation
 
-    Bjorn Andersson:     Artist
+    Bjorn Winge:        
+    Environmental Artist
 
-    Lilly A. Helmersen: 
-    SFX & Music'
+    Lilly A. Helmersen:  SFX & Music'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 980ba267f2eb0e64b896dc79cdcd4992, type: 2}
   m_sharedMaterial: {fileID: -2159384523065331046, guid: 980ba267f2eb0e64b896dc79cdcd4992,
@@ -1582,7 +1585,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 51.035065, z: -31.378052, w: -158.40361}
+  m_margin: {x: 0, y: 51.035065, z: -140.86328, w: -158.40361}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2189,7 +2192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2030591853
 RectTransform:
   m_ObjectHideFlags: 0

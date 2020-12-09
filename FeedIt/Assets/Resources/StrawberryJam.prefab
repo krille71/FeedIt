@@ -93,7 +93,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4626183377975275655}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c18113c19a5f5e04abc67cb79f63a0d0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -130,7 +130,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &323000152582083225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   BEAST_EATING_MOVEMENT: 0.25
   scrollSpeed: 10
   destroyPoistionX: -45
+  BEAST_EATING_MOVEMENT_START: 0.1
