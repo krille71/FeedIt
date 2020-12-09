@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject creditMenu;
     [SerializeField] private GameObject controlMenu;
 
+    [SerializeField] private GameObject backBoard;
+    [SerializeField] private GameObject logo;
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -19,6 +22,8 @@ public class MainMenu : MonoBehaviour
     {
         tMenu.SetActive(false);
         creditMenu.SetActive(true);
+        backBoard.SetActive(false);
+        logo.SetActive(false);
     }
 
     public void SwitchToControlsMenu()
@@ -32,6 +37,8 @@ public class MainMenu : MonoBehaviour
         tMenu.SetActive(true);
         creditMenu.SetActive(false);
         controlMenu.SetActive(false);
+        backBoard.SetActive(true);
+        logo.SetActive(true);
     }
 
     public void QuitGame()
