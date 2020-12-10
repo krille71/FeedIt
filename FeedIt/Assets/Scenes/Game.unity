@@ -2680,7 +2680,7 @@ MonoBehaviour:
     m_Bits: 256
   fallMultiplier: 4
   lowJumpMultiplier: 4
-  jumpVelocity: 10
+  jumpVelocity: 9
   COYOTE_TIME: 0.1
   JUMP_BUFFER_TIME: 0.1
   jumpSound: {fileID: 1763153927}
@@ -5394,7 +5394,7 @@ MonoBehaviour:
     m_Bits: 256
   fallMultiplier: 4
   lowJumpMultiplier: 4
-  jumpVelocity: 10
+  jumpVelocity: 9
   COYOTE_TIME: 0.1
   JUMP_BUFFER_TIME: 0.1
   jumpSound: {fileID: 1763153927}

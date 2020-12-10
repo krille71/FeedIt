@@ -6,12 +6,14 @@ public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] private List<Transform> chunks;
     [SerializeField] private Transform endChunk;
-    [SerializeField] private const float ORIGIN_DISTANCE_SPAWN_CHUNK = 0.1f;
+    [SerializeField] private const float MIN_X_SPAWN_CHUNK = -20;
+    private const float MIN_X_NEXT_BEAST_RAWR = 10;
     private Vector3 width = new Vector3(50f, 0f, 0f);
     private Transform lastChunk;
 
     private bool spawnedLastChunk = false;
     public bool gameFinished = false;
+    private bool newBeastRawr = false;
 
     private int lastChunkNumber = -1;
 
@@ -28,9 +30,16 @@ public class LevelGenerator : MonoBehaviour
     void Update()
     {
         // Spawn a new chunk if the last one is getting close to the screen
-        if(lastChunk.position.magnitude < ORIGIN_DISTANCE_SPAWN_CHUNK)
+        if(lastChunk.position.x < MIN_X_SPAWN_CHUNK)
         {
             spawnChunk(lastChunk.position);
+        }
+
+        if(spawnedLastChunk && !newBeastRawr && lastChunk.position.x < MIN_X_NEXT_BEAST_RAWR)
+        {
+            newBeastRawr = true;
+            Debug.Log("NEW BEAST RAWR"); // TODO lilly remove this when adding the sound
+            //TODO lilly new beast rawr
         }
     }
 

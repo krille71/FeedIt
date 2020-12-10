@@ -84,12 +84,13 @@ public class CookingHandling : MonoBehaviour
         {
             cookedDish = "TranquilizerDish";
         }
-        else if (
-        CookingDict.ContainsKey(dish_key)) {
+        else if (CookingDict.ContainsKey(dish_key))
+        {
             cookedDish = CookingDict[dish_key][0];
             dish_score = Int16.Parse(CookingDict[dish_key][1]);
         }
-        else {
+        else
+        {
             cookedDish = "BowlOfGoodies";
         }
 
@@ -102,7 +103,9 @@ public class CookingHandling : MonoBehaviour
         dish.transform.position = player.transform.position;
         activeCookedDish_rb = activeCookedDish.GetComponent<Rigidbody2D>();
         activeCookedDish_rb.velocity = new Vector2(15.0f, 10.0f);
-        bonApetitSound.Play();
+
+        bonApetitSound.Play();  // TODO Remove? Do we have the dish sounds instead of this now?
+        PlayDishSound(cookedDish);
     }
 
     public bool CollectIngredient(GameObject ingredient)
@@ -117,5 +120,21 @@ public class CookingHandling : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void PlayDishSound(String dish)
+    {
+        if (dish == "BlueberryJam")
+            ;//TODO Lilly
+        if (dish == "BowlOfGoodies")
+            ;//TODO Lilly
+        if (dish == "FruitSmoothie")
+            ;//TODO Lilly
+        if (dish == "StrawberryJam")
+            ;//TODO Lilly
+        if (dish == "StrawberryOmelette")
+            ;//TODO Lilly
+        if (dish == "TranquilizerDish")
+            ;//TODO Lilly
     }
 }
