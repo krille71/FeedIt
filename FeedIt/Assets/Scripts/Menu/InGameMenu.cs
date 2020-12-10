@@ -13,6 +13,7 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private GameObject Censored;
     [SerializeField] private GameObject FinalScore;
     [SerializeField] private GameObject GameOverText;
+    [SerializeField] private GameObject BackBoard;
 
     private LevelGenerator levelGenerator;
     private Beast beast;
@@ -60,11 +61,13 @@ public class InGameMenu : MonoBehaviour
         GameIsPaused = false;
         PauseMenu.SetActive(false);
         GameOverMenu.SetActive(false);
+        BackBoard.SetActive(false);
     }
 
     private void Pause()
     {
         InGameMenuUI.SetActive(true);
+        BackBoard.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -93,6 +96,7 @@ public class InGameMenu : MonoBehaviour
         GameIsPaused = true;
         InGameMenuUI.SetActive(true);
         GameOverMenu.SetActive(true);
+        BackBoard.SetActive(true);
 
         FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
 
