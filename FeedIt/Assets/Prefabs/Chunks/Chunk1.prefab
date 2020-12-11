@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
       propertyPath: ingredientsSpawnChance.Array.data[4]
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1535010005402544312, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}

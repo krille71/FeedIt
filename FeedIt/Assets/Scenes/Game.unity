@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOVE_TIME: 0.5
-  EATING_MOVEMENT_INCREASE: 0.05
+  EATING_MOVEMENT_INCREASE: 0.02
   EATING_INCREASE_TIMER: 60
   AboveIsAngryX: -9
   BelowIsSleepyX: -11
@@ -7436,6 +7436,7 @@ MonoBehaviour:
   - {fileID: 8036561027848056953, guid: 30de1da0cbbb7714e9c24d60b41dab5e, type: 3}
   - {fileID: 8036561027848056953, guid: ee7dd4a4e82cfd8449410d21368ed8fa, type: 3}
   - {fileID: 5804055639002753453, guid: 83b693e255d4fd540963eebf8a87156d, type: 3}
+  - {fileID: 8036561027848056953, guid: 5c1997736993f6f43b2afac25fb7e4e7, type: 3}
   endChunk: {fileID: 8024869481026373213, guid: ef11c09582c836444ae6ee8006f1f7fe,
     type: 3}
   gameFinished: 0

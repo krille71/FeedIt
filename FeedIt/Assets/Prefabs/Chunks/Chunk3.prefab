@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
       propertyPath: ingredientsSpawnChance.Array.data[4]
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1535010005402544312, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
@@ -496,6 +496,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5804055639002753453}
     m_Modifications:
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[3]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[2]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[1]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[0]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[4]
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1535010005402544312, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -666,6 +691,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5804055639002753453}
     m_Modifications:
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[4]
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1535010005402544312, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,6 +871,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5804055639002753453}
     m_Modifications:
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[3]
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188625468797286121, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
+        type: 3}
+      propertyPath: ingredientsSpawnChance.Array.data[4]
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1535010005402544312, guid: 1286d95e2d1ce9e47b54b2a56d53d027,
         type: 3}
       propertyPath: m_LocalPosition.x
