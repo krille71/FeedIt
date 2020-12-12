@@ -21,7 +21,7 @@ public class ScoreCounter : MonoBehaviour
     {
         menu = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<InGameMenu>();
         scoreDisplay = GameObject.FindGameObjectWithTag("ScoreDisplay").GetComponent<TextMeshProUGUI>();
-        addDishScore = GameObject.Find("AddDishScore").GetComponent<TextMeshProUGUI>();
+        addDishScore = GameObject.FindGameObjectWithTag("ScoreAddedCounter").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
