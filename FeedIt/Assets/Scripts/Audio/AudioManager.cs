@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour{
 		Sound s = FindSound(sound);
 		s.source.Stop();
 	}
-	public void Stop(Sound s){
+	public void Stop	(Sound s){
 		s.source.Stop();
 	}
 

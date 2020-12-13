@@ -111,8 +111,9 @@ public class CookingHandling : MonoBehaviour
             ingredient.transform.parent = transform;
             ingredient.transform.position = positions[numIngredients];
             ingredients.Add(ingredient);
-            // TODO: Play pickupsound
-        
+            // Play pickupsound
+            FindObjectOfType<AudioManager>().Play("pick_up_sound");
+
             return true;
         }
         return false;
