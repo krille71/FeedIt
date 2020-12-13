@@ -66,11 +66,11 @@ public class AudioManager : MonoBehaviour{
 	public void PauseSound(Sound s){
 		s.source.Pause();
 	}
-	public void StopSound(string sound){
+	public void Stop(string sound){
 		Sound s = FindSound(sound);
 		s.source.Stop();
 	}
-	public void StopSound(Sound s){
+	public void Stop(Sound s){
 		s.source.Stop();
 	}
 
