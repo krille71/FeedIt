@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour{
 	[HideInInspector]
 	private int soundArrayLength = 0;
 
+
 	void Awake(){
 		if (instance != null)
 		{
@@ -41,7 +42,6 @@ public class AudioManager : MonoBehaviour{
 		}
 
 		pausedSounds = new Sound[soundArrayLength];
-
 	}
 
 	public void Play(string sound){
@@ -53,17 +53,37 @@ public class AudioManager : MonoBehaviour{
 
 		s.source.Play();
 	}
+	public void Play(Sound s){
+		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+		s.source.Play();
+	}
+	public void PauseSound(string sound){
+		Sound s = FindSound(sound);
+		s.source.Pause();
+	}
+	public void PauseSound(Sound s){
+		s.source.Pause();
+	}
+	public void StopSound(string sound){
+		Sound s = FindSound(sound);
+		s.source.Stop();
+	}
+	public void StopSound(Sound s){
+		s.source.Stop();
+	}
+
 
 	public void PlayBacgroundSound(){
 		string startSound = "startingsound";
 		Sound s = FindSound(startSound);
 		float soundLength = s.clip.length;
 		if(!s.source.isPlaying){
-			s.source.Play();
+			Play(s);
 			Invoke("PlayLoop", soundLength);
 		}
 		Play("running_sound");
-
 	}
 	private void PlayLoop(){
 		string loopSound = "reapitingsound";
@@ -78,6 +98,8 @@ public class AudioManager : MonoBehaviour{
 		}
 		return s;
 	}
+
+
 
 	public void PauseSounds(){//pauses all plying sounds
 		//Clears array
@@ -100,6 +122,7 @@ public class AudioManager : MonoBehaviour{
 				//Debug.Log("Name: " + s.name);
 				if(s != null){
 					s.source.UnPause();
+
 				}
 			}
 		}

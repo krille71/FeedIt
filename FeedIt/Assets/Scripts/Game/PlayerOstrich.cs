@@ -41,13 +41,15 @@ public class PlayerOstrich : Player
     {
         if (_velocity > 0)
         {
-            // TODO: Stop playing runningsound
+            //Stop playing runningsound
+            FindObjectOfType<AudioManager>().Stop("running_sound");
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }
         else if (_velocity < 0)
         {
-            // TODO: Stop playing runningsound
+            //Stop playing runningsound
+            FindObjectOfType<AudioManager>().Stop("running_sound");
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", true);
         }
@@ -55,10 +57,13 @@ public class PlayerOstrich : Player
         {
             if (anim.GetBool("Falling"))
             {
-                // TODO: Play LandingSound
+                // Play LandingSound
+                FindObjectOfType<AudioManager>().Play("landing_sound");
+
             }
-            
-            // TODO: Play runningsound
+
+            // Play runningsound
+            FindObjectOfType<AudioManager>().Play("running_sound");
 
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", false);
