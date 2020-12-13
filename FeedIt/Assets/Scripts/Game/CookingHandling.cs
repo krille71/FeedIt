@@ -15,10 +15,6 @@ public class CookingHandling : MonoBehaviour
 
     private List<GameObject> ingredients = new List<GameObject>();
 
-    // Sound effects
-    public AudioSource pickUpSound;
-    public AudioSource bonApetitSound;
-
     private GameObject activeCookedDish;
     private Rigidbody2D activeCookedDish_rb;
 
@@ -115,7 +111,8 @@ public class CookingHandling : MonoBehaviour
             ingredient.transform.parent = transform;
             ingredient.transform.position = positions[numIngredients];
             ingredients.Add(ingredient);
-            pickUpSound.Play();
+            // TODO: Play pickupsound
+        
             return true;
         }
         return false;
