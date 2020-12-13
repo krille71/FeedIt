@@ -820,6 +820,69 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: throwing_dish
+    clip: {fileID: 8300000, guid: 42bfb17557048d7419d03b0113b06914, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_blueberry
+    clip: {fileID: 8300000, guid: 10ce3993868fc4342b41b2fccdc20756, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_bowlofgood
+    clip: {fileID: 8300000, guid: 70da7812fbebf6e479a6f3944c952b8b, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_fruitsmoodi
+    clip: {fileID: 8300000, guid: e41cf118cfad2c5458d25e95ebc4c236, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_strawberryjam
+    clip: {fileID: 8300000, guid: 42bfb17557048d7419d03b0113b06914, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_strawberryomelett
+    clip: {fileID: 8300000, guid: 3bc95b51469f6624ba18654cad66e8f1, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: dish_tranquilizer
+    clip: {fileID: 8300000, guid: 563b77bd9d8cd5f4698246759fa73647, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &268271541
 Transform:
   m_ObjectHideFlags: 0

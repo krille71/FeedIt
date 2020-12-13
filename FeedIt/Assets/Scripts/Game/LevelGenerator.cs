@@ -38,8 +38,7 @@ public class LevelGenerator : MonoBehaviour
         if(spawnedLastChunk && !newBeastRawr && lastChunk.position.x < MIN_X_NEXT_BEAST_RAWR)
         {
             newBeastRawr = true;
-            Debug.Log("NEW BEAST RAWR"); // TODO lilly remove this when adding the sound
-            //TODO lilly new beast rawr
+            FindObjectOfType<AudioManager>().Play("raor_beast");
         }
     }
 

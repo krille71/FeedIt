@@ -14,6 +14,11 @@ public class AudioManager : MonoBehaviour{
 
 	public Sound[] sounds;
 
+	[HideInInspector]
+	private Sound[] pausedSounds;
+	[HideInInspector]
+	private int soundArrayLength = 0;
+
 	void Awake(){
 		if (instance != null)
 		{
@@ -32,7 +37,11 @@ public class AudioManager : MonoBehaviour{
 			s.source.loop = s.loop;
 
 			s.source.outputAudioMixerGroup = mixerGroup;
+			soundArrayLength++;
 		}
+
+		pausedSounds = new Sound[soundArrayLength];
+
 	}
 
 	public void Play(string sound){
@@ -49,9 +58,12 @@ public class AudioManager : MonoBehaviour{
 		string startSound = "startingsound";
 		Sound s = FindSound(startSound);
 		float soundLength = s.clip.length;
+		if(!s.source.isPlaying){
+			s.source.Play();
+			Invoke("PlayLoop", soundLength);
+		}
+		Play("running_sound");
 
-		s.source.Play();
-		Invoke("PlayLoop", soundLength);
 	}
 	private void PlayLoop(){
 		string loopSound = "reapitingsound";
@@ -67,4 +79,36 @@ public class AudioManager : MonoBehaviour{
 		return s;
 	}
 
+	public void PauseSounds(){//pauses all plying sounds
+		//Clears array
+		/*for (int i = 0; i < pausedSounds.Length; i++){
+				 pausedSounds[i] = null;
+			}*/
+		pausedSounds = new Sound[soundArrayLength];
+		int i = 0;
+		foreach (Sound s in sounds){
+			if(s.source.isPlaying){
+				s.source.Pause();
+				pausedSounds[i] = s;
+				i++;
+			}
+		}
+	}
+	public void ResumeSounds(){//resumes all paused sounds
+		if(pausedSounds[0] != null){
+			foreach (Sound s in pausedSounds){
+				//Debug.Log("Name: " + s.name);
+				if(s != null){
+					s.source.UnPause();
+				}
+			}
+		}
+	}
+	public void StopSounds(){//stops all plying sounds
+		foreach (Sound s in sounds){
+			if(s.source.isPlaying){
+				s.source.Stop();
+			}
+		}
+	}
 }

@@ -62,6 +62,7 @@ public class InGameMenu : MonoBehaviour
         PauseMenu.SetActive(false);
         GameOverMenu.SetActive(false);
         BackBoard.SetActive(false);
+        FindObjectOfType<AudioManager>().ResumeSounds();
     }
 
     private void Pause()
@@ -70,6 +71,7 @@ public class InGameMenu : MonoBehaviour
         BackBoard.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        FindObjectOfType<AudioManager>().PauseSounds();
     }
 
     public void Retry()
@@ -89,7 +91,7 @@ public class InGameMenu : MonoBehaviour
     }
 
     /*
-        Initialize game over screen. Different text depending on if the beast is sleeping or is fighting the player 
+        Initialize game over screen. Different text depending on if the beast is sleeping or is fighting the player
     */
     public void GameOver()
     {
@@ -97,6 +99,7 @@ public class InGameMenu : MonoBehaviour
         InGameMenuUI.SetActive(true);
         GameOverMenu.SetActive(true);
         BackBoard.SetActive(true);
+        FindObjectOfType<AudioManager>().StopSounds();
 
         FinalScore.GetComponent<TextMeshProUGUI>().text = "FINAL SCORE: " + scoreCounter.GetScore().ToString();
 

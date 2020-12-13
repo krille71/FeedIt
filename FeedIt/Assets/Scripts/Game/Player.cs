@@ -102,7 +102,9 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Beast"))
         {
             inGameMenu.GameOver();
-            // TODO lilly "Players screaming when getting eaten"
+            //"Players screaming when getting eaten"
+            FindObjectOfType<AudioManager>().Play("beast_eating_player_sound");
+            FindObjectOfType<AudioManager>().Play("bird_dying");
         }
     }
 

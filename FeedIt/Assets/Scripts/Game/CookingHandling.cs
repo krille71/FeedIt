@@ -104,7 +104,6 @@ public class CookingHandling : MonoBehaviour
         activeCookedDish_rb = activeCookedDish.GetComponent<Rigidbody2D>();
         activeCookedDish_rb.velocity = new Vector2(15.0f, 10.0f);
 
-        bonApetitSound.Play();  // TODO Remove? Do we have the dish sounds instead of this now?
         PlayDishSound(cookedDish);
     }
 
@@ -124,17 +123,23 @@ public class CookingHandling : MonoBehaviour
 
     private void PlayDishSound(String dish)
     {
-        if (dish == "BlueberryJam")
-            ;//TODO Lilly
-        if (dish == "BowlOfGoodies")
-            ;//TODO Lilly
-        if (dish == "FruitSmoothie")
-            ;//TODO Lilly
-        if (dish == "StrawberryJam")
-            ;//TODO Lilly
-        if (dish == "StrawberryOmelette")
-            ;//TODO Lilly
-        if (dish == "TranquilizerDish")
-            ;//TODO Lilly
+        if (dish == "BlueberryJam"){
+            FindObjectOfType<AudioManager>().Play("dish_blueberry");
+          }
+        if (dish == "BowlOfGoodies"){
+            FindObjectOfType<AudioManager>().Play("dish_bowlofgood");
+          }
+        if (dish == "FruitSmoothie"){
+          FindObjectOfType<AudioManager>().Play("dish_fruitsmoodi");
+        }
+        if (dish == "StrawberryJam"){
+          FindObjectOfType<AudioManager>().Play("dish_strawberryjam");
+        }
+        if (dish == "StrawberryOmelette"){
+            FindObjectOfType<AudioManager>().Play("dish_strawberryomelett");
+          }
+        if (dish == "TranquilizerDish"){
+          FindObjectOfType<AudioManager>().Play("dish_tranquilizer");
+        }
     }
 }
