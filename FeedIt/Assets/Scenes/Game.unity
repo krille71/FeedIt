@@ -848,6 +848,15 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: pick_up_sound
+    clip: {fileID: 8300000, guid: 1949a544428084d44b630028d4c76e63, type: 3}
+    volume: 0.64
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &268271541
 Transform:
   m_ObjectHideFlags: 0
@@ -5342,8 +5351,6 @@ MonoBehaviour:
   - {x: -7, y: 5, z: 1}
   COOKING_TIME: 3
   isCooking: 0
-  pickUpSound: {fileID: 0}
-  bonApetitSound: {fileID: 0}
 --- !u!114 &1546678165
 MonoBehaviour:
   m_ObjectHideFlags: 0
