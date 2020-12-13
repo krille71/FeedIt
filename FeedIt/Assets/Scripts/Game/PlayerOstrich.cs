@@ -41,26 +41,25 @@ public class PlayerOstrich : Player
     {
         if (_velocity > 0)
         {
-            runningSound.Stop();
+            // TODO: Stop playing runningsound
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }
         else if (_velocity < 0)
         {
-            runningSound.Stop();
+            // TODO: Stop playing runningsound
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", true);
         }
         else
         {
-            if (anim.GetBool("Falling") && !landingSound.isPlaying)
+            if (anim.GetBool("Falling"))
             {
-                landingSound.Play();
+                // TODO: Play LandingSound
             }
-            if (!runningSound.isPlaying)
-            {
-                runningSound.Play();
-            }
+            
+            // TODO: Play runningsound
+
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", false);
         }

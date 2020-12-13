@@ -23,10 +23,7 @@ public class Player : MonoBehaviour
     private float mayJump;
     protected float jumpBuffer;
 
-    // Sound effects
-    public AudioSource jumpSound;
-    public AudioSource landingSound;
-    public AudioSource runningSound;
+
 
     // Start is called before the first frame update
     protected virtual void Start()
