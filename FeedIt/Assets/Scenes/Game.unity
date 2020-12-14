@@ -859,7 +859,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: raccon_say_get_the_mushroom
     clip: {fileID: 8300000, guid: cbb0b194eec60ef4a81f1d6e61005a8a, type: 3}
-    volume: 0.64
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: raccon_say_the_mushrooms_will_make_him_sleepy
     clip: {fileID: 8300000, guid: 02f42c38901a60a4da522a1967a1fecc, type: 3}
-    volume: 0.64
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0

@@ -53,34 +53,40 @@ public class AudioManager : MonoBehaviour{
 
 		s.source.Play();
 	}
+	/*
 	public void Play(Sound s){
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
 		s.source.Play();
-	}
+	}*/
 	public void PauseSound(string sound){
 		Sound s = FindSound(sound);
 		s.source.Pause();
 	}
+	/*
 	public void PauseSound(Sound s){
 		s.source.Pause();
-	}
+	}*/
 	public void Stop(string sound){
 		Sound s = FindSound(sound);
 		s.source.Stop();
 	}
+	/*
 	public void Stop	(Sound s){
 		s.source.Stop();
+	}*/
+	public bool getIsPlaying(string sound){
+		Sound s = FindSound(sound);
+		return s.source.isPlaying;
 	}
-
 
 	public void PlayBacgroundSound(){
 		string startSound = "startingsound";
 		Sound s = FindSound(startSound);
 		float soundLength = s.clip.length;
 		if(!s.source.isPlaying){
-			Play(s);
+			s.source.Play();
 			Invoke("PlayLoop", soundLength);
 		}
 		Play("running_sound");

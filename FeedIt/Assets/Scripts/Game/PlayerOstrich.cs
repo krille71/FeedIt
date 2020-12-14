@@ -63,7 +63,11 @@ public class PlayerOstrich : Player
             }
 
             // Play runningsound
-            FindObjectOfType<AudioManager>().Play("running_sound");
+            if(!FindObjectOfType<AudioManager>().getIsPlaying("running_sound") && Time.timeScale == 1f){
+                FindObjectOfType<AudioManager>().Play("running_sound");
+            }
+            
+            
 
             anim.SetBool("Jumping", false);
             anim.SetBool("Falling", false);
