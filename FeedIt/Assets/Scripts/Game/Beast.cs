@@ -63,7 +63,7 @@ public class Beast : MonoBehaviour
             //eating sound
             FindObjectOfType<AudioManager>().Play("beast_eating_sound");
         }
-        
+
     }
 
     private void Update()
@@ -72,7 +72,8 @@ public class Beast : MonoBehaviour
         if (transform.position.x < BelowIsSleepingX)
         {
             isSleeping = true;
-            // TODO lilly play "We did it!"
+            // play "We did it!"
+            FindObjectOfType<AudioManager>().Play("raccon_say_we_did_it");
         }
 
         // Animations
@@ -83,11 +84,15 @@ public class Beast : MonoBehaviour
             {
                 if(Random.Range(0, 2) == 0)
                 {
-                    // TODO lilly play "Collect the mushrooms to make him sleepy"
+                    // play "Collect the mushrooms to make him sleepy"
+                    FindObjectOfType<AudioManager>().Play("raccon_say_the_mushrooms_will_make_him_sleepy");
+
                 }
                 else
                 {
-                    // TODO lilly play "Collect the mushrooms"
+                    // play "Collect the mushrooms"
+                    FindObjectOfType<AudioManager>().Play("raccon_say_get_the_mushroom");
+
                 }
 
                 angry = true;
@@ -107,7 +112,8 @@ public class Beast : MonoBehaviour
 
         if(!playedWoohoo && playWoohooCountdown < 0)
         {
-            // TODO lilly play "WOOHOO"
+            //play "WOOHOO"
+            FindObjectOfType<AudioManager>().Play("raccon_say_woohoo");
             playedWoohoo = true;
         }
     }
