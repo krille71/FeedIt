@@ -35,9 +35,10 @@ public class Beast : MonoBehaviour
     [SerializeField] private float MaxX = -6.0f;
 
     private bool angry = false;
+    private bool shoutedWeDidIt = false;
 
     // Celebration shouting
-    private float playWoohooCountdown = 3.0f;
+    private float playWoohooCountdown = 1.0f;
     private bool playedWoohoo = false;
 
     void Start()
@@ -72,8 +73,11 @@ public class Beast : MonoBehaviour
         if (transform.position.x < BelowIsSleepingX)
         {
             isSleeping = true;
-            // play "We did it!"
-            FindObjectOfType<AudioManager>().Play("raccon_say_we_did_it");
+            if (!shoutedWeDidIt)
+            {
+                FindObjectOfType<AudioManager>().Play("raccon_say_we_did_it");
+                shoutedWeDidIt = true;
+            }
         }
 
         // Animations
@@ -82,17 +86,13 @@ public class Beast : MonoBehaviour
             anim.SetBool("Angry", true);
             if (!angry)
             {
-                if(Random.Range(0, 2) == 0)
+                if(Random.Range(0, 2) <= 0)
                 {
-                    // play "Collect the mushrooms to make him sleepy"
                     FindObjectOfType<AudioManager>().Play("raccon_say_the_mushrooms_will_make_him_sleepy");
-
                 }
                 else
                 {
-                    // play "Collect the mushrooms"
                     FindObjectOfType<AudioManager>().Play("raccon_say_get_the_mushroom");
-
                 }
 
                 angry = true;
@@ -112,7 +112,6 @@ public class Beast : MonoBehaviour
 
         if(!playedWoohoo && playWoohooCountdown < 0)
         {
-            //play "WOOHOO"
             FindObjectOfType<AudioManager>().Play("raccon_say_woohoo");
             playedWoohoo = true;
         }
