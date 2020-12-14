@@ -34,10 +34,16 @@ public class Beast : MonoBehaviour
 
     [SerializeField] private float MaxX = -6.0f;
 
+    private bool angry = false;
+
+    // Celebration shouting
+    private float playWoohooCountdown = 3.0f;
+    private bool playedWoohoo = false;
+
     void Start()
     {
         eatingIncreaseTimer = EATING_INCREASE_TIMER;
-         anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     public void Move(float length, FoodType type)
@@ -53,6 +59,7 @@ public class Beast : MonoBehaviour
                 case FoodType.TranquilizedDish: break;
             }
             frameMovement = moveRemainder / MOVE_TIME;
+
             //eating sound
             FindObjectOfType<AudioManager>().Play("beast_eating_sound");
         }
@@ -65,22 +72,43 @@ public class Beast : MonoBehaviour
         if (transform.position.x < BelowIsSleepingX)
         {
             isSleeping = true;
+            // TODO lilly play "We did it!"
         }
 
         // Animations
-        if (transform.position.x > AboveIsAngryX)
+        else if (transform.position.x > AboveIsAngryX)
         {
             anim.SetBool("Angry", true);
+            if (!angry)
+            {
+                if(Random.Range(0, 2) == 0)
+                {
+                    // TODO lilly play "Collect the mushrooms to make him sleepy"
+                }
+                else
+                {
+                    // TODO lilly play "Collect the mushrooms"
+                }
+
+                angry = true;
+            }
         }
         else if(transform.position.x < BelowIsSleepyX)
         {
             anim.SetBool("Sleepy", true);
-            
+            angry = false;
         }
         else
         {
             anim.SetBool("Sleepy", false);
             anim.SetBool("Angry", false);
+            angry = false;
+        }
+
+        if(!playedWoohoo && playWoohooCountdown < 0)
+        {
+            // TODO lilly play "WOOHOO"
+            playedWoohoo = true;
         }
     }
 
@@ -114,6 +142,9 @@ public class Beast : MonoBehaviour
             eatingIncreaseTimer = EATING_INCREASE_TIMER;
         }
 
+        // Decrease timers
         eatingIncreaseTimer -= Time.deltaTime;
+        if (isSleeping)
+            playWoohooCountdown -= Time.deltaTime;
     }
 }
