@@ -7,7 +7,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private List<Transform> chunks;
     [SerializeField] private Transform endChunk;
     [SerializeField] private const float MIN_X_SPAWN_CHUNK = -20;
-    private const float MIN_X_NEXT_BEAST_RAWR = 10;
+    private const float MIN_X_NEXT_BEAST_RAWR = 5;
     private Vector3 width = new Vector3(50f, 0f, 0f);
     private Transform lastChunk;
 
