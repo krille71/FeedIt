@@ -822,7 +822,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: dish_strawberryjam
-    clip: {fileID: 8300000, guid: 42bfb17557048d7419d03b0113b06914, type: 3}
+    clip: {fileID: 8300000, guid: 794bf31d3fe24834ba55dbdef65ba928, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
