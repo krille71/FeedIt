@@ -47,34 +47,37 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        holdingJumpKey = false;
-        holdingDownKey = false;
-        UpdatePlayerAnimation(rigidbody.velocity.y);
-
-        if (isGrounded())
-            mayJump = COYOTE_TIME;
-
-        KeyInput();
-        HandleInput();
-
-        // Initial jump
-        if (mayJump > 0 && jumpBuffer > 0 && holdingJumpKey)
+        if (!inGameMenu.GameIsPaused)
         {
-            rigidbody.velocity = Vector2.up * jumpVelocity;
-            mayJump = 0;
-            jumpBuffer = 0;
-            this.playJumpSound();
+            holdingJumpKey = false;
+            holdingDownKey = false;
+            UpdatePlayerAnimation(rigidbody.velocity.y);
 
-        }
+            if (isGrounded())
+                mayJump = COYOTE_TIME;
 
-        // Jump through semisolid by deactivating their hitbox
-        if(holdingDownKey && isGrounded())
-        {
-            RaycastHit2D[] casts = boxCastAll(0.001f, 5f);
-            foreach(RaycastHit2D cast in casts)
+            KeyInput();
+            HandleInput();
+
+            // Initial jump
+            if (mayJump > 0 && jumpBuffer > 0 && holdingJumpKey)
             {
-                if(cast.collider != null && cast.transform.gameObject.tag == "SemiSolid")
-                    cast.transform.gameObject.GetComponent<Collider2D>().enabled = false;
+                rigidbody.velocity = Vector2.up * jumpVelocity;
+                mayJump = 0;
+                jumpBuffer = 0;
+                this.playJumpSound();
+
+            }
+
+            // Jump through semisolid by deactivating their hitbox
+            if (holdingDownKey && isGrounded())
+            {
+                RaycastHit2D[] casts = boxCastAll(0.001f, 5f);
+                foreach (RaycastHit2D cast in casts)
+                {
+                    if (cast.collider != null && cast.transform.gameObject.tag == "SemiSolid")
+                        cast.transform.gameObject.GetComponent<Collider2D>().enabled = false;
+                }
             }
         }
     }
