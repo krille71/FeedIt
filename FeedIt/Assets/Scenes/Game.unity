@@ -857,6 +857,42 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: raccon_say_get_the_mushroom
+    clip: {fileID: 8300000, guid: cbb0b194eec60ef4a81f1d6e61005a8a, type: 3}
+    volume: 0.64
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: raccon_say_the_mushrooms_will_make_him_sleepy
+    clip: {fileID: 8300000, guid: 02f42c38901a60a4da522a1967a1fecc, type: 3}
+    volume: 0.64
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: raccon_say_we_did_it
+    clip: {fileID: 8300000, guid: 5654d313e1985a14c867042684a38786, type: 3}
+    volume: 0.64
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: raccon_say_woohoo
+    clip: {fileID: 8300000, guid: 48590cfe0571f05409b234eafadb231a, type: 3}
+    volume: 0.64
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &268271541
 Transform:
   m_ObjectHideFlags: 0
