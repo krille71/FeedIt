@@ -1,0 +1,4 @@
+Strawberry,Egg,Banana;FruitSmoothie,200
+Strawberry,Egg,Strawberry;StrawberryOmelette,80
+Strawberry,Strawberry,Strawberry;StrawberryJam,100
+Blueberry,Blueberry,Blueberry;BlueberryJam,300
